@@ -39,4 +39,31 @@ class Artikel extends CI_Controller {
             echo "Gagal menyimpan data";
         }
     }
+
+    public function update()
+    {
+        $this->is_login();
+        $id = $this->input->post("id");
+		$data = array(
+            "data" => $this->input->post("data"),
+            "judul" => $this->input->post("judul"),
+        );
+
+        if($this->M_Artikel->update($id, $data)) {
+            echo "Berhasil menyimpan data";
+        } else {
+            echo "Gagal menyimpan data";
+        }
+    }
+
+    public function delete()
+    {
+        $this->is_login();
+        $id = $this->input->post("id");
+        if($this->M_Artikel->delete($id)) {
+            echo "Berhasil menghapus data";
+        } else {
+            echo "Gagal menghapus data";
+        }
+    }
 }

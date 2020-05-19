@@ -160,12 +160,6 @@
   <!-- AdminLTE App -->
   <script src="<?php echo base_url() ?>assets/js/adminlte.js"></script>
 
-  <!-- DataTables -->
-  <script src="<?php echo base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
   <!-- PAGE PLUGINS -->
   <!-- jQuery Mapael -->
   <script src="<?php echo base_url() ?>assets/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
@@ -174,64 +168,13 @@
   <script src="<?php echo base_url() ?>assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
   <!-- ChartJS <?php echo base_url() ?>assets/-->
   <script src="<?php echo base_url() ?>assets/plugins/chart.js/Chart.min.js"></script>
-  <!-- Summernote -->
-  <script src="<?php echo base_url() ?>assets/plugins/summernote/summernote-bs4.min.js"></script>
-  <script>
-    $(function() {
-      // Summernote
-      $('.textarea-editor').summernote()
-      // Data Table
-      $("#tabel").DataTable({
-        "responsive": true,
-        "autoWidth": false,
-        "ajax": {
-          url: "artikel/getAll",
-          dataSrc: function(data) {
-            return data.map(function(d) {
-              return {
-                id: d.id,
-                judul: d.judul,
-                tanggal: d.tanggal,
-                aksi: "<a href='home?page=lihat_artikel&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a>"
-              }
-            });
-          }
-        },
-        columns: [{
-            data: "id"
-          },
-          {
-            data: "judul"
-          },
-          {
-            data: "tanggal"
-          },
-          {
-            data: "aksi"
-          }
-        ]
-      });
-    })
 
-    function simpanArtikel(e) {
-      var data = $("#artikel-editor").val();
-      var judul = $("#judul").val();
-      $.ajax({
-        url: "artikel/create",
-        method: "POST",
-        data: {
-          judul: judul,
-          data: data
-        },
-        success: function(result) {
-          alert("Data berhasil disimpan");
-        },
-        error: function(err) {
-          alert("Data gagal disimpan");
-        }
-      })
+
+  <?php
+    if($footer) {
+      require_once("footer/$footer");
     }
-  </script>
+  ?>
 </body>
 
 </html>

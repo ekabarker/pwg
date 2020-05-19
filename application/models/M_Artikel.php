@@ -19,4 +19,16 @@ class M_Artikel extends CI_Model
     {
         return $this->db->insert("artikel", $artikel);
     }
+
+    function update($id, $data)
+    {
+        return $this->db->where("id", $id)
+                        ->update("artikel", $data);
+    }
+
+    function delete($id)
+    {
+        return $this->db->where("id", $id)
+                        ->delete("artikel");
+    }
 }

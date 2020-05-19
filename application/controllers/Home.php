@@ -24,6 +24,7 @@ class Home extends CI_Controller {
         if($this->input->get("page")) {
             $menu = $this->input->get("page");
         }
+        $footer = null;
 		$this->load->view('v_home', ["menu" => $menu]);
     }
 

@@ -65,12 +65,11 @@ class Login extends CI_Controller
                 'agama' => htmlspecialchars($this->input->post('agama', true)),
                 'jenis_kelamin' => htmlspecialchars($this->input->post('jenis_kelamin', true)),
                 'username' => htmlspecialchars($this->input->post('username', true)),
-                'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'role' => 'admin'
-
+                'password' => md5($this->input->post('password1')),
+                'role' => 'anggota'
             ];
 
-            $this->db->insert('anggota', $data);
+            $this->M_Anggota->insert($data);
             $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"> SELAMAT! Akun Anda Berhasil dibuat. Silakan Login </div>');
             redirect('login/index');
         }

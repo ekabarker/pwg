@@ -5,7 +5,7 @@ class M_Anggota extends CI_Model
 {
     function getAll()
     {
-        return $this->db->get("anggota")->row_array();
+        return $this->db->get("anggota")->result();
     }
 
     function cekLogin($username, $password)
@@ -18,6 +18,6 @@ class M_Anggota extends CI_Model
 
     function insert($data)
     {
-        return $this->db->insert($data, "anggota");
+        return $this->db->insert("anggota", $data);
     }
 }

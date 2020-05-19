@@ -3,9 +3,9 @@
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    Daftar Semua Artikel
+                    Daftar Artikel
                 </h3>
-                
+
             </div>
             <div class="card-body">
                 <table class="table table-bordered" id="tabel">
@@ -25,4 +25,4 @@
     <!-- /.col-->
 </div>
 
-    <!-- ./row -->
+<!-- ./row -->

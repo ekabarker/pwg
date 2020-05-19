@@ -1,18 +1,19 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_Anggota extends CI_Model
 {
-    function getAll() 
+    function getAll()
     {
-        return $this->db->get("anggota")->result();
+        return $this->db->get("anggota")->row_array();
     }
 
-    function cekLogin($username, $password) {
+    function cekLogin($username, $password)
+    {
         return $this->db->where("username", $username)
-                        ->where("password", md5($password))
-                        ->get("anggota")
-                        ->result();
+            ->where("password", md5($password))
+            ->get("anggota")
+            ->result();
     }
 
     function insert($data)

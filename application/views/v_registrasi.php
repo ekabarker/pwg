@@ -32,7 +32,7 @@
                     <p class="login-box-msg">Silakan Registrasi Anggota</p>
                     <label for="nama">Nama</label>
                     <div class="input-group mb-1">
-                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap">
+                        <input type="text" id="nama" name="nama" class="form-control text-capitalize" placeholder="Nama Lengkap" value="<?= set_value('nama'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-signature"></span>
@@ -40,9 +40,10 @@
                         </div>
                     </div>
                     <?= form_error('nama', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
                     <label for="tanggal_lahir">Tanggal Lahir</label>
                     <div class="input-group mb-1">
-                        <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" placeholder="Tanggal lahir">
+                        <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" placeholder="Tanggal lahir" value="<?= set_value('tanggal_lahir'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-calendar-alt"></span>
@@ -50,9 +51,10 @@
                         </div>
                     </div>
                     <?= form_error('tanggal_lahir', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
                     <label for="tempat_lahir">Tempat Lahir</label>
                     <div class="input-group mb-1">
-                        <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control" placeholder="Kabupaten/Kota">
+                        <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control text-capitalize" placeholder="Kabupaten/Kota" value="<?= set_value('tempat_lahir'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-city"></span>
@@ -62,7 +64,7 @@
                     <?= form_error('tempat_lahir', ' <small class="text-danger pl-3">', '</small>'); ?><br>
                     <label for="alamat">Alamat</label>
                     <div class="input-group mb-1">
-                        <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal">
+                        <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= set_value('alamat'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-map-marker-alt"></span>
@@ -70,9 +72,10 @@
                         </div>
                     </div>
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
                     <label for="username">Nama Pengguna</label>
                     <div class="input-group mb-1">
-                        <input type="text" id="username" name="username" class="form-control" placeholder="Username">
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Username" value="<?= set_value('username'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -80,6 +83,7 @@
                         </div>
                     </div>
                     <?= form_error('username', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
                     <label for="password1">Password</label>
                     <div class="input-group m-1">
                         <input type="password" id="password1" name="password1" class="form-control" placeholder="Password">
@@ -89,7 +93,8 @@
                             </div>
                         </div>
                     </div>
-                    <?= form_error('password1', ' <small class="text-danger pl-3">', '</small>'); ?>
+                    <?= form_error('password1', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
                     <label for="password2">Ulangi Password</label>
                     <div class="input-group m-1">
                         <input type="password" id="password2" name="password2" class="form-control" placeholder="Password">
@@ -99,6 +104,7 @@
                             </div>
                         </div>
                     </div>
+
                     <label for="jenis_kelamin">Jenis Kelamin</label>
                     <div class="input-group m-1">
                         <label class="radio-inline col-5">

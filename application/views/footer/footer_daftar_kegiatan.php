@@ -8,14 +8,14 @@
     "responsive": true,
     "autoWidth": false,
     "ajax": {
-      url: "artikel/getAll",
+      url: "kegiatan/getAll",
       dataSrc: function(data) {
         return data.map(function(d) {
           return {
             id: d.id,
             judul: d.judul,
             tanggal: d.tanggal,
-            aksi: "<a href='home?tampil=artikel&page=lihat_artikel&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> <a href='home?tampil=artikel&page=edit_artikel&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteArtikel(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
+            aksi: "<a href='home?tampil=kegiatan&page=lihat_kegiatan&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> <a href='home?tampil=kegiatan&page=edit_kegiatan&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteKegiatan(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
           }
         });
       }
@@ -35,20 +35,20 @@
     ]
   });
 
-  function deleteArtikel(id) {
-    if (confirm("Apakah anda yakin ingin menghapus artikel ini?")) {
+  function deleteKegiatan(id) {
+    if (confirm("Apakah anda yakin ingin menghapus Kegiatan ini?")) {
       $.ajax({
-        url: "artikel/delete",
+        url: "kegiatan/delete",
         method: "POST",
         data: {
           id: id
         },
         success: function() {
-          alert("Artikel berhasil dihapus");
+          alert("Kegiatan berhasil dihapus");
           tabel.ajax.reload();
         },
         error: function() {
-          alert("Artikel gagal dihapus");
+          alert("Kegiatan gagal dihapus");
           tabel.ajax.reload();
         }
       })

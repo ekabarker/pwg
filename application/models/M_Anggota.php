@@ -8,6 +8,12 @@ class M_Anggota extends CI_Model
         return $this->db->get("anggota")->result();
     }
 
+    function get($id)
+    {
+        return $this->db->where("id", $id)
+            ->get("anggota")->result();
+    }
+
     function cekLogin($username, $password)
     {
         return $this->db->where("username", $username)
@@ -19,5 +25,17 @@ class M_Anggota extends CI_Model
     function insert($data)
     {
         return $this->db->insert("anggota", $data);
+    }
+
+    function update($id, $data)
+    {
+        return $this->db->where("id", $id)
+            ->update("anggota", $data);
+    }
+
+    function delete($id)
+    {
+        return $this->db->where("id", $id)
+            ->delete("anggota");
     }
 }

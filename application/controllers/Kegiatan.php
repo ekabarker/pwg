@@ -1,56 +1,35 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Artikel extends CI_Controller
+class Kegiatan extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
-
-        $this->load->model("M_Artikel");
+        $this->load->model("M_Kegiatan");
     }
 
-    function is_login()
+    public function is_login()
     {
         if (!$this->session->has_userdata("user")) {
             redirect("login");
         }
     }
-
     public function getAll()
     {
-        echo json_encode($this->M_Artikel->getAll());
+        echo json_encode($this->M_Kegiatan->getAll());
     }
-
     public function create()
     {
         $this->is_login();
         $data = array(
             "anggota_id" => $this->session->user->id,
-            "data" => $this->input->post("data"),
             "judul" => $this->input->post("judul"),
-            "tanggal" => date('Y-m-d'),
-            "jenis" => "artikel"
+            "data" => $this->input->post("data"),
+            "tanggal" => date('Y-m-d')
         );
 
-        if ($this->M_Artikel->insert($data)) {
-            echo "Berhasil menyimpan data";
-        } else {
-            echo "Gagal menyimpan data";
-        }
-    }
-
-    public function update()
-    {
-        $this->is_login();
-        $id = $this->input->post("id");
-        $data = array(
-            "data" => $this->input->post("data"),
-            "judul" => $this->input->post("judul"),
-        );
-
-        if ($this->M_Artikel->update($id, $data)) {
+        if ($this->M_Kegiatan->insert($data)) {
             echo "Berhasil menyimpan data";
         } else {
             echo "Gagal menyimpan data";
@@ -61,8 +40,8 @@ class Artikel extends CI_Controller
     {
         $this->is_login();
         $id = $this->input->post("id");
-        if ($this->M_Artikel->delete($id)) {
-            echo "Berhasil menghapus data";
+        if ($this->M_Kegiatan->delete($id)) {
+            echo "Berhail menghapus data";
         } else {
             echo "Gagal menghapus data";
         }

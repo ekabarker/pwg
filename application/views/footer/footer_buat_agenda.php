@@ -3,15 +3,22 @@
 <script>
     $('.textarea-editor').summernote()
 
-    function simpanArtikel(e) {
-        var data = $("#artikel-editor").val();
+    function simpanAgenda(e) {
+
         var judul = $("#judul").val();
+        var deskripsi = $("#deskripsi").val();
+        var pelaksanaan = $("#pelaksanaan").val();
+        var tempat = $("#tempat").val();
+        var sarana = $("#sarana").val();
         $.ajax({
-            url: "artikel/create",
+            url: "agenda/create",
             method: "POST",
             data: {
                 judul: judul,
-                data: data
+                deskripsi: deskripsi,
+                pelaksanaan: pelaksanaan,
+                tempat: tempat,
+                sarana: sarana
             },
             success: function(result) {
                 alert("Data berhasil disimpan");

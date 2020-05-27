@@ -3,11 +3,11 @@
 <script>
     $('.textarea-editor').summernote()
 
-    function simpanArtikel(e) {
-        var data = $("#artikel-editor").val();
+    function simpanKegiatan(e) {
+        var data = $("#deskripsi").val();
         var judul = $("#judul").val();
         $.ajax({
-            url: "artikel/create",
+            url: "kegiatan/create",
             method: "POST",
             data: {
                 judul: judul,

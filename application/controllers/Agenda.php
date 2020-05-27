@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Artikel extends CI_Controller
+class Agenda extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->load->model("M_Artikel");
+        $this->load->model("M_Agenda");
     }
 
     function is_login()
@@ -20,7 +20,7 @@ class Artikel extends CI_Controller
 
     public function getAll()
     {
-        echo json_encode($this->M_Artikel->getAll());
+        echo json_encode($this->M_Agenda->getAll());
     }
 
     public function create()
@@ -28,13 +28,15 @@ class Artikel extends CI_Controller
         $this->is_login();
         $data = array(
             "anggota_id" => $this->session->user->id,
-            "data" => $this->input->post("data"),
             "judul" => $this->input->post("judul"),
-            "tanggal" => date('Y-m-d'),
-            "jenis" => "artikel"
+            "data" => $this->input->post("deskripsi"),
+            "pelaksanaan" => $this->input->post("pelaksanaan"),
+            "tempat" => $this->input->post("tempat"),
+            "sarana" => $this->input->post("sarana"),
+            "tanggal" => date('Y-m-d')
         );
 
-        if ($this->M_Artikel->insert($data)) {
+        if ($this->M_Agenda->insert($data)) {
             echo "Berhasil menyimpan data";
         } else {
             echo "Gagal menyimpan data";
@@ -46,11 +48,15 @@ class Artikel extends CI_Controller
         $this->is_login();
         $id = $this->input->post("id");
         $data = array(
-            "data" => $this->input->post("data"),
             "judul" => $this->input->post("judul"),
+            "data" => $this->input->post("deskripsi"),
+            "pelaksanaan" => $this->input->post("pelaksanaan"),
+            "tempat" => $this->input->post("tempat"),
+            "sarana" => $this->input->post("sarana"),
+
         );
 
-        if ($this->M_Artikel->update($id, $data)) {
+        if ($this->M_Agenda->update($id, $data)) {
             echo "Berhasil menyimpan data";
         } else {
             echo "Gagal menyimpan data";
@@ -61,7 +67,7 @@ class Artikel extends CI_Controller
     {
         $this->is_login();
         $id = $this->input->post("id");
-        if ($this->M_Artikel->delete($id)) {
+        if ($this->M_Agenda->delete($id)) {
             echo "Berhasil menghapus data";
         } else {
             echo "Gagal menghapus data";

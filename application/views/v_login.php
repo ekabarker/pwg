@@ -31,8 +31,9 @@
         <p class="login-box-msg">Silakan login untuk memulai sesi Anda</p>
         <?php
         //outputkan error jika ada
-        echo $this->session->flashdata('error');
-        ?>
+        echo $this->session->flashdata('error'); ?>
+        <?php echo $this->session->flashdata('pesan'); ?>
+
         <?php echo form_open('login/cekLogin'); ?>
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username">

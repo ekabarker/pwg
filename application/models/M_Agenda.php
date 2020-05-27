@@ -1,34 +1,34 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Artikel extends CI_Model
+class M_Agenda extends CI_Model
 {
     function getAll()
     {
-        return $this->db->select(["id", "judul", "tanggal"])
-            ->get("artikel")->result();
+        return $this->db->select(["id", "judul", "pelaksanaan"])
+            ->get("agenda")->result();
     }
 
     function get($id)
     {
         return $this->db->where("id", $id)
-            ->get("artikel")->result();
+            ->get("agenda")->result();
     }
 
-    function insert($artikel)
+    function insert($agenda)
     {
-        return $this->db->insert("artikel", $artikel);
+        return $this->db->insert("agenda", $agenda);
     }
 
     function update($id, $data)
     {
         return $this->db->where("id", $id)
-            ->update("artikel", $data);
+            ->update("agenda", $data);
     }
 
     function delete($id)
     {
         return $this->db->where("id", $id)
-            ->delete("artikel");
+            ->delete("agenda");
     }
 }

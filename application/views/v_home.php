@@ -47,9 +47,9 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="index3.html" class="brand-link">
-        <img src="<?php echo base_url() ?>assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Padukuhan Waluh Geni</span>
+      <a href="<?php echo base_url('home'); ?>" class="brand-link">
+        <!--<img src="<?php echo base_url() ?>assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
+        <span class="brand-text font-weight-light">Padukuhan Waluh Geni </span>
       </a>
 
       <!-- Sidebar -->
@@ -60,7 +60,7 @@
             <img src="<?php echo base_url() ?>assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block"><?php echo ($this->session->user->nama) ?></a>
+            <a href="?page=profil" class="d-block"><?php echo ($this->session->user->username) ?></a>
           </div>
         </div>
 
@@ -71,25 +71,65 @@
                with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="<?php echo base_url() ?>?page=daftar_artikel" class="nav-link">
-                <i class="nav-icon fas fa-th"></i>
-                <p>
+                <i class=""></i>
+                <h5>
                   Dashboard
+                </h5>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url() ?>?tampil=anggota&page=daftar_anggota" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  Anggota
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url() ?>?page=daftar_anggota" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
+              <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
+                <i class="nav-icon fas fa-book-open"></i>
                 <p>
-                  Daftar Anggota
+                  Artikel
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="<?php echo base_url() ?>?page=buat_artikel" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
+              <a href="<?php echo base_url() ?>?tampil=agenda&page=daftar_agenda" class="nav-link">
+                <i class="nav-icon fas fa-calendar-plus"></i>
                 <p>
-                  Buat Artikel
+                  Agenda Kegiatan
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url() ?>?tampil=kegiatan&page=daftar_kegiatan" class="nav-link">
+                <i class="nav-icon fas fa-calendar-check"></i>
+                <p>
+                  Kegiatan
+                </p>
+              </a>
+            </li><br>
+            <li class="nav-item">
+              <a href="<?php echo base_url() ?>?page=daftar_artikel" class="nav-link">
+                <i class=""></i>
+                <h5>
+                  Penjadwalan
+                </h5>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
+                <i class="nav-icon fas fa-chart-line"></i>
+                <p>
+                  Antrian Pasien
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  Jadwal
                 </p>
               </a>
             </li>
@@ -124,7 +164,11 @@
       <section class="content">
         <div class="container-fluid">
           <?php
-          require_once("v_$menu.php");
+          if ($tampil != "") {
+            require_once("$tampil/v_$menu.php");
+          } else {
+            require_once("v_$menu.php");
+          }
           ?>
         </div>
         <!--/. container-fluid -->
@@ -171,9 +215,9 @@
 
 
   <?php
-    if($footer) {
-      require_once("footer/$footer");
-    }
+  if ($footer) {
+    require_once("footer/$footer");
+  }
   ?>
 </body>
 

@@ -1,6 +1,6 @@
 <?php
-    $id = $this->input->get("id");
-    $artikel = $this->M_Artikel->get($id)[0];
+$id = $this->input->get("id");
+$kegiatan = $this->M_Kegiatan->get($id)[0];
 
 ?>
 <div class="row">
@@ -8,16 +8,16 @@
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    <?php echo $artikel->judul ?>
+                    <h1><b><?php echo $kegiatan->judul ?></b></h1>
                 </h3>
-                
+
             </div>
             <div class="card-body">
-                <?php echo $artikel->data ?>
+                <?php echo $kegiatan->data ?>
             </div>
         </div>
     </div>
     <!-- /.col-->
 </div>
 
-    <!-- ./row -->
+<!-- ./row -->

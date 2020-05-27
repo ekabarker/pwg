@@ -1,31 +1,39 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
     public function __construct()
     {
         parent::__construct();
         $this->load->model("M_Anggota");
         $this->load->model("M_Artikel");
+        $this->load->model("M_Agenda");
+        $this->load->model("M_Kegiatan");
     }
 
     function is_login()
     {
-        if(!$this->session->has_userdata("user")) {
+        if (!$this->session->has_userdata("user")) {
             redirect("login");
         }
     }
 
-	public function index()
-	{
+    public function index()
+    {
         $this->is_login();
         $menu = "daftar_artikel";
-        if($this->input->get("page")) {
+        $tampil = "";
+
+        if ($this->input->get("page")) {
             $menu = $this->input->get("page");
         }
+        if ($this->input->get("tampil")) {
+            $tampil = $this->input->get("tampil");
+        }
         $footer = null;
-		$this->load->view('v_home', ["menu" => $menu]);
+        $this->load->view('v_home', ["menu" => $menu, "tampil" => $tampil]);
     }
 
     public function logout()

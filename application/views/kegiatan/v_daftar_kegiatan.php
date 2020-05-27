@@ -1,24 +1,24 @@
 <?php
-    $footer = "footer_daftar_anggota.php";
+$footer = "footer_daftar_kegiatan.php";
 ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    Daftar Anggota
+                    Daftar Kegiatan
                 </h3>
 
             </div>
             <div class="card-body">
-                <!-- <a href="?page=buat_artikel"><button class="btn btn-primary">Tambah</button></a></br><br> -->
+                <a href="?tampil=kegiatan&page=buat_kegiatan"><button class="btn btn-primary">Buat Kegiatan</button></a></br><br>
                 <table class="table table-bordered" id="tabel">
                     <thead>
                         <tr>
-                            <th>Nama</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Username</th>
-                            <th>Role</th>
+                            <th>Id</th>
+                            <th>Judul Kegiatan</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody></tbody>

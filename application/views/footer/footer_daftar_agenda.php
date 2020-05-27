@@ -8,14 +8,18 @@
     "responsive": true,
     "autoWidth": false,
     "ajax": {
-      url: "artikel/getAll",
+      url: "agenda/getAll",
       dataSrc: function(data) {
         return data.map(function(d) {
           return {
             id: d.id,
             judul: d.judul,
+            deskripsi: d.data,
+            pelaksanaan: d.pelaksanaan,
+            tempat: d.tempat,
+            sarana: d.sarana,
             tanggal: d.tanggal,
-            aksi: "<a href='home?tampil=artikel&page=lihat_artikel&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> <a href='home?tampil=artikel&page=edit_artikel&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteArtikel(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
+            aksi: "<a href='home?tampil=agenda&page=lihat_agenda&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> <a href='home?tampil=agenda&page=edit_agenda&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteAgenda(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
           }
         });
       }
@@ -27,7 +31,7 @@
         data: "judul"
       },
       {
-        data: "tanggal"
+        data: "pelaksanaan"
       },
       {
         data: "aksi"
@@ -35,20 +39,20 @@
     ]
   });
 
-  function deleteArtikel(id) {
-    if (confirm("Apakah anda yakin ingin menghapus artikel ini?")) {
+  function deleteAgenda(id) {
+    if (confirm("Apakah anda yakin ingin menghapus agenda ini?")) {
       $.ajax({
-        url: "artikel/delete",
+        url: "agenda/delete",
         method: "POST",
         data: {
           id: id
         },
         success: function() {
-          alert("Artikel berhasil dihapus");
+          alert("Agenda berhasil dihapus");
           tabel.ajax.reload();
         },
         error: function() {
-          alert("Artikel gagal dihapus");
+          alert("Agenda gagal dihapus");
           tabel.ajax.reload();
         }
       })

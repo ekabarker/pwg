@@ -36,6 +36,15 @@ class Agenda extends CI_Controller
             "tanggal" => date('Y-m-d')
         );
 
+        $filename = $this->generateRandomString().'-'.date('Y-m-d');
+        file_put_contents("agenda/".$filename, $this->input->post("deskripsi"));
+        $data["data"] = $filename;
+
+        $filename = $this->generateRandomString().'-'.date('Y-m-d');
+        file_put_contents("agenda/sarana/".$filename, $this->input->post("sarana"));
+        $data["sarana"] = $filename;
+
+
         if ($this->M_Agenda->insert($data)) {
             echo "Berhasil menyimpan data";
         } else {
@@ -72,5 +81,15 @@ class Agenda extends CI_Controller
         } else {
             echo "Gagal menghapus data";
         }
+    }
+
+    function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
     }
 }

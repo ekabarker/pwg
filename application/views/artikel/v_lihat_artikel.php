@@ -1,6 +1,11 @@
 <?php
 $id = $this->input->get("id");
 $artikel = $this->M_Artikel->get($id)[0];
+
+$myfile = fopen("artikel/".$artikel->data, "r") or die("Unable to open file!");
+$data = fread($myfile,filesize("artikel/".$artikel->data));
+fclose($myfile);
+
 $footer = null;
 
 ?>
@@ -14,7 +19,7 @@ $footer = null;
 
             </div>
             <div class="card-body text-justify">
-                <?php echo $artikel->data ?>
+                <?php echo $data ?>
 
             </div>
             <div style="margin: 0 auto"><a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary">Kembali</button></a></div><br>

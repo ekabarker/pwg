@@ -1,25 +1,24 @@
 <?php
-$footer = "footer_daftar_artikel.php";
+$footer = "footer_antrian_pasien.php";
 ?>
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    Daftar Artikel
+                    Antrian Pasien
                 </h3>
 
             </div>
             <div class="card-body">
-                <?php if($user->role == 'admin') { ?>
-                <a href="?tampil=artikel&page=buat_artikel"><button class="btn btn-primary">Buat Artikel</button></a></br><br>
-                <?php } ?>
                 <table class="table table-bordered" id="tabel">
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Judul Artikel</th>
+                            <th>Nama</th>
                             <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

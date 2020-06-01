@@ -11,6 +11,8 @@ class Home extends CI_Controller
         $this->load->model("M_Artikel");
         $this->load->model("M_Agenda");
         $this->load->model("M_Kegiatan");
+        $this->load->model("M_JenisPengobatan");
+        $this->load->model("M_Pengobatan");
     }
 
     function is_login()

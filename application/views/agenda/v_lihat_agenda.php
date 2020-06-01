@@ -1,6 +1,16 @@
 <?php
 $id = $this->input->get("id");
 $agenda = $this->M_Agenda->get($id)[0];
+
+$myfile = fopen("agenda/".$agenda->data, "r") or die("Unable to open file!");
+$data = fread($myfile,filesize("agenda/".$agenda->data));
+fclose($myfile);
+
+$myfile = fopen("agenda/sarana/".$agenda->sarana, "r") or die("Unable to open file!");
+$sarana = fread($myfile,filesize("agenda/sarana/".$agenda->sarana));
+fclose($myfile);
+
+
 $footer = null;
 ?>
 <div class="row">
@@ -15,7 +25,7 @@ $footer = null;
 
             </div>
             <div class="card-body text-justify">
-                <?php echo $agenda->data ?>
+                <?php echo $data ?>
                 <br>
                 <hr>
                 <div class="row">
@@ -31,7 +41,7 @@ $footer = null;
                 <div class="row">
                     <div class="col-2">Sarana</div>
                     <div>:</div>
-                    <div class="col-7"><?php echo $agenda->sarana ?></div>
+                    <div class="col-7"><?php echo $sarana ?></div>
                 </div>
             </div>
             <div style="margin: 0 auto"><a href="?tampil=agenda&page=daftar_agenda"><button class="btn btn-primary">Kembali</button></a></div><br>

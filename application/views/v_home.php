@@ -60,11 +60,12 @@
             <?php
             $user = $this->session->user;
             ?>
-            <img src="<?php echo base_url('assets/img/profile/') . $user->gambar ?>" class="img-circle elevation-2" alt="User Image">
+            <img src="<?php echo base_url('assets/img/profile/') . ($user->gambar ? $user->gambar : 'default.jpg') ?>" class="img-circle elevation-2" alt="User Image">
 
           </div>
           <div class="info">
             <a href="?page=profil" class="d-block"><?php echo ($this->session->user->username) ?></a>
+            <input type="text" id="role" value="<?php echo $user->role ?>" hidden>
           </div>
         </div>
 
@@ -74,11 +75,12 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-header">
-              <h5>Administrator</h5>
+              <h5><?php echo ($user->role == 'admin' ? 'Administrator' : 'Anggota') ?></h5>
             </li>
             <li class="nav-header">
               <h5>Dashboard</h5>
             </li>
+            <?php if($user->role == 'admin') { ?>
             <li class="nav-item">
               <a href="<?php echo base_url() ?>?tampil=anggota&page=daftar_anggota" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
@@ -87,6 +89,7 @@
                 </p>
               </a>
             </li>
+            <?php } ?>
             <li class="nav-item">
               <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
                 <i class="nav-icon fas fa-book-open"></i>
@@ -114,14 +117,16 @@
             <li class="nav-header">
               <h5>Penjadwalan</h5>
             </li>
+            <?php if($user->role == 'admin') { ?>
             <li class="nav-item">
-              <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
+              <a href="<?php echo base_url() ?>?page=antrian_pasien" class="nav-link">
                 <i class="nav-icon fas fa-chart-line"></i>
                 <p>
                   Antrian Pasien
                 </p>
               </a>
             </li>
+            
             <li class="nav-item">
               <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
                 <i class="nav-icon fas fa-calendar-alt"></i>
@@ -129,7 +134,18 @@
                   Jadwal
                 </p>
               </a>
-            </li><br>
+            </li>
+            <?php } else { ?>
+            <li class="nav-item">
+              <a href="<?php echo base_url() ?>?page=daftar_pengobatan" class="nav-link">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <p>
+                  Registrasi Pengobatan
+                </p>
+              </a>
+            </li>
+            <?php } ?>
+            <br>
             <li class="nav-item">
               <a href="<?php echo base_url() ?>home/logout" class="nav-link" onclick="return confirm('Yakin ingin keluar?');">
                 <i class="nav-icon fas fa-sign-out-alt"></i>

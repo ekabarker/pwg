@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>Registrasi</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,7 +46,7 @@
                         <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" placeholder="Tanggal lahir" value="<?= set_value('tanggal_lahir'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-calendar-alt"></span>
+
                             </div>
                         </div>
                     </div>
@@ -62,6 +62,7 @@
                         </div>
                     </div>
                     <?= form_error('tempat_lahir', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
                     <label for="alamat">Alamat</label>
                     <div class="input-group mb-1">
                         <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat Tempat Tinggal" value="<?= set_value('alamat'); ?>">
@@ -72,6 +73,17 @@
                         </div>
                     </div>
                     <?= form_error('alamat', ' <small class="text-danger pl-3">', '</small>'); ?><br>
+
+                    <label for="alamat">Nomor Telepon</label>
+                    <div class="input-group mb-1">
+                        <input type="number" id="no_tlp" name="no_tlp" class="form-control" placeholder="No Telepon / WA" value="<?= set_value('no_tlp'); ?>">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-phone"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <?= form_error('no_tlp', ' <small class="text-danger pl-3">', '</small>'); ?><br>
 
                     <label for="username">Nama Pengguna</label>
                     <div class="input-group mb-1">
@@ -86,7 +98,7 @@
 
                     <label for="password1">Password</label>
                     <div class="input-group m-1">
-                        <input type="password" id="password1" name="password1" class="form-control" placeholder="Password">
+                        <input type="password" id="password1" name="password1" class="form-control" placeholder="Password min-8 karakter">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -97,7 +109,7 @@
 
                     <label for="password2">Ulangi Password</label>
                     <div class="input-group m-1">
-                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Password">
+                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Password min-8 karakter">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

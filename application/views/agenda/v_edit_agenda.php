@@ -41,6 +41,7 @@ $agenda = $this->M_Agenda->get($id)[0];
                 </div>
 
                 <a href="?tampil=agenda&page=daftar_agenda"><button class="btn btn-primary" onclick="simpanAgenda()">Simpan</button></a>
+                <a href="?tampil=agenda&page=daftar_agenda"><button class="btn btn-primary" onclick="return confirm('Yakin ingin membatalkan peruahan?');">Batal</button></a>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 <?php
 $id = $this->input->get("id");
 $artikel = $this->M_Artikel->get($id)[0];
+$footer = null;
 
 ?>
 <div class="row">
@@ -14,7 +15,9 @@ $artikel = $this->M_Artikel->get($id)[0];
             </div>
             <div class="card-body text-justify">
                 <?php echo $artikel->data ?>
+
             </div>
+            <div style="margin: 0 auto"><a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary">Kembali</button></a></div><br>
         </div>
     </div>
     <!-- /.col-->

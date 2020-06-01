@@ -46,6 +46,9 @@ class Login extends CI_Controller
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
             'required' => 'Alamat wajib diisi!'
         ]);
+        $this->form_validation->set_rules('no_tlp', 'Nomor Telepon', 'required|trim', [
+            'required' => 'Nomor Telepon wajib diisi!'
+        ]);
         $this->form_validation->set_rules('agama', 'agama', 'required|trim', [
             'required' => 'Agama wajib diisi!'
         ]);
@@ -76,10 +79,13 @@ class Login extends CI_Controller
                 'tempat_lahir' => htmlspecialchars($this->input->post('tempat_lahir', true)),
                 'alamat' => htmlspecialchars($this->input->post('alamat', true)),
                 'agama' => htmlspecialchars($this->input->post('agama', true)),
+                'no_tlp' => htmlspecialchars($this->input->post('no_tlp', true)),
                 'jenis_kelamin' => htmlspecialchars($this->input->post('jenis_kelamin', true)),
                 'username' => htmlspecialchars($this->input->post('username', true)),
                 'password' => md5($this->input->post('password1')),
-                'role' => 'anggota'
+                'role' => 'anggota',
+                'gambar' => 'default.jpg',
+                'tgl_buat' => date('y-m-d')
             ];
 
             $this->M_Anggota->insert($data);

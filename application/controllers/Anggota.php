@@ -31,6 +31,7 @@ class Anggota extends CI_Controller
             "tanggal_lahir" => $this->input->post("tanggal_lahir"),
             "tempat_lahir" => $this->input->post("tempat_lahir"),
             "alamat" => $this->input->post("alamat"),
+            "no_tlp" => $this->input->post("no_tlp"),
             "agama" => $this->input->post("agama"),
             "jenis_kelamin" => $this->input->post("jk"),
             "username" => $this->input->post("username"),

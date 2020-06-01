@@ -16,7 +16,8 @@ $footer = null;
             </div>
             <div class="card-body text-justify">
                 <?php echo $agenda->data ?>
-                <br><br>
+                <br>
+                <hr>
                 <div class="row">
                     <div class="col-2">Waktu</div>
                     <div>:</div>
@@ -32,9 +33,8 @@ $footer = null;
                     <div>:</div>
                     <div class="col-7"><?php echo $agenda->sarana ?></div>
                 </div>
-
             </div>
-            </>
-            <!-- /.col-->
-
-            <!-- ./row -->
+            <div style="margin: 0 auto"><a href="?tampil=agenda&page=daftar_agenda"><button class="btn btn-primary">Kembali</button></a></div><br>
+        </div>
+    </div>
+</div>

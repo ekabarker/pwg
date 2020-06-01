@@ -30,8 +30,7 @@ class Artikel extends CI_Controller
             "anggota_id" => $this->session->user->id,
             "data" => $this->input->post("data"),
             "judul" => $this->input->post("judul"),
-            "tanggal" => date('Y-m-d'),
-            "jenis" => "artikel"
+            "tanggal" => date('Y-m-d')
         );
 
         if ($this->M_Artikel->insert($data)) {

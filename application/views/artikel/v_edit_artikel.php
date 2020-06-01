@@ -29,6 +29,7 @@ $artikel = $this->M_Artikel->get($id)[0];
                 </div>
 
                 <a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary" onclick="simpanArtikel()">Simpan</button></a>
+                <a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary" onclick="return confirm('Yakin ingin membatalkan peruahan?');">Batal</button></a>
             </div>
         </div>
     </div>

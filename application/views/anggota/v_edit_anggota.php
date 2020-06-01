@@ -24,8 +24,11 @@ $anggota = $this->M_Anggota->get($id)[0];
                     <input type="text" class="form-control" value="<?php echo $anggota->username ?>" id="username">
                 </div>
                 <div class="form-group">
-                    <label for="nama">Tanggal Lahir</label>
-                    <input type="text" class="form-control" value="<?php echo $anggota->tanggal_lahir ?>" id="tgl_lahir">
+                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                    <div class="input-group">
+                        <input type="date" id="tgl_lahir" class="form-control" placeholder="Tanggal lahir" value="<?php echo $anggota->tanggal_lahir ?>">
+
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="nama">Tempat Lahir</label>
@@ -36,15 +39,33 @@ $anggota = $this->M_Anggota->get($id)[0];
                     <input type="text" class="form-control" value="<?php echo $anggota->alamat ?>" id="alamat">
                 </div>
                 <div class="form-group">
+                    <label for="alamat">Nomor Telepon</label>
+                    <input type="number" id="no_tlp" class="form-control" value="<?php echo $anggota->no_tlp ?>">
+                </div>
+                <div class="form-group">
                     <label for="nama">Agama</label>
-                    <input type="text" class="form-control" value="<?php echo $anggota->agama ?>" id="agama">
+
+                    <select class="custom-select" id="agama">
+                        <option selected><?php echo $anggota->agama ?></option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Buddha">Buddha</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                    </select>
+
                 </div>
                 <div class="form-group">
                     <label for="nama">Jenis Kelamin</label>
-                    <input type="text" class="form-control" value="<?php echo $anggota->jenis_kelamin ?>" id="jk">
+
+                    <select class="custom-select" id="jk">
+                        <option selected><?php echo $anggota->jenis_kelamin ?></option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
                 </div>
 
                 <a href="?tampil=anggota&page=daftar_anggota"><button class="btn btn-primary" onclick="simpanAnggota()">Simpan</button></a>
+                <a href="?tampil=anggota&page=daftar_anggota"><button class="btn btn-primary" onclick="return confirm('Yakin ingin membatalkan peruahan?');">Batal</button></a>
 
             </div>
         </div>

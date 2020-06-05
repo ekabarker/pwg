@@ -32,7 +32,7 @@
                     <p class="login-box-msg">Silakan Registrasi Anggota</p>
                     <label for="nama">Nama</label>
                     <div class="input-group mb-1">
-                        <input type="text" id="nama" name="nama" class="form-control text-capitalize" placeholder="Nama Lengkap" value="<?= set_value('nama'); ?>">
+                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap" value="<?= set_value('nama'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-signature"></span>
@@ -46,7 +46,7 @@
                         <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control" placeholder="Tanggal lahir" value="<?= set_value('tanggal_lahir'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
-
+                                <span class="fas fa-calendar-alt"></span>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
 
                     <label for="tempat_lahir">Tempat Lahir</label>
                     <div class="input-group mb-1">
-                        <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control text-capitalize" placeholder="Kabupaten/Kota" value="<?= set_value('tempat_lahir'); ?>">
+                        <input type="text" id="tempat_lahir" name="tempat_lahir" class="form-control" placeholder="Kabupaten/Kota" value="<?= set_value('tempat_lahir'); ?>">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-city"></span>

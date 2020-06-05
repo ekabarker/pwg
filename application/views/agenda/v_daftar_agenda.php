@@ -11,7 +11,9 @@ $footer = "footer_daftar_agenda.php";
 
             </div>
             <div class="card-body">
-                <a href="?tampil=agenda&page=buat_agenda"><button class="btn btn-primary">Buat Agenda</button></a></br><br>
+                <?php if ($user->role == 'admin') { ?>
+                    <a href="?tampil=agenda&page=buat_agenda"><button class="btn btn-primary">Buat Agenda</button></a></br><br>
+                <?php } ?>
                 <table class="table table-bordered" id="tabel">
                     <thead>
                         <tr>

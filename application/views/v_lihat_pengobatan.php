@@ -8,7 +8,7 @@ $pengobatan = $this->M_Pengobatan->get($id)[0];
         <div class="card card-outline card-info">
             <div class="card-header">
                 <h3 class="card-title">
-                    Lihat Pengobatan
+                    Data Antrian Pasien
                 </h3>
 
             </div>
@@ -28,7 +28,7 @@ $pengobatan = $this->M_Pengobatan->get($id)[0];
 
                         <strong><i class="fas fa-birthday-cake mr-2"></i> Kelahiran</strong>
                         <p class="text-muted">
-                            <?php echo $pengobatan->tempat_lahir ?>, <?php echo $pengobatan->tanggal_lahir ?>
+                            <?php echo $pengobatan->tempat_lahir ?>, <?php echo date('d F Y', strtotime($pengobatan->tanggal_lahir)); ?>
                         </p>
 
                         <hr>
@@ -47,38 +47,29 @@ $pengobatan = $this->M_Pengobatan->get($id)[0];
 
                         <hr>
 
-                        <strong><i class="fas fa-phone mr-1"></i> Tanggal</strong>
+                        <strong><i class="fas fa-calendar-alt mr-2"></i> Tanggal</strong>
                         <p class="text-muted">
-                            <?php echo $pengobatan->tanggal ?>
+                            <?php echo date('d F Y', strtotime($pengobatan->tanggal)); ?>
                         </p>
 
                         <hr>
 
-                        <strong><i class="fas fa-phone mr-1"></i> Jam</strong>
+                        <strong><i class="fas fa-clock mr-1"></i> Jam</strong>
                         <p class="text-muted">
                             <?php echo $pengobatan->jam ?>
                         </p>
 
                         <hr>
 
-                        <strong><i class="fas fa-phone mr-1"></i> Jenis Pengobatan</strong>
-                        <p class="text-muted">
-                            <?php echo $pengobatan->jenis_pengobatan ?>
-                        </p>
-
-                        <hr>
-
-                        <strong><i class="fas fa-phone mr-1"></i> Deskripsi</strong>
+                        <strong><i class="fas fa-clipboard mr-1"></i> Deskripsi</strong>
                         <p class="text-muted">
                             <?php echo $pengobatan->deskripsi ?>
                         </p>
-
-                        <hr>
-
                     </div>
                     <!-- /.card-body -->
 
                 </div>
+                <div><a href="?page=antrian_pasien"><button class="btn btn-primary">Kembali</button></a></div><br />
             </div>
         </div>
     </div>

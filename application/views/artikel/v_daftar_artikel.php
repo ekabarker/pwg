@@ -11,8 +11,8 @@ $footer = "footer_daftar_artikel.php";
 
             </div>
             <div class="card-body">
-                <?php if($user->role == 'admin') { ?>
-                <a href="?tampil=artikel&page=buat_artikel"><button class="btn btn-primary">Buat Artikel</button></a></br><br>
+                <?php if ($user->role == 'admin') { ?>
+                    <a href="?tampil=artikel&page=buat_artikel"><button class="btn btn-primary">Buat Artikel</button></a></br><br>
                 <?php } ?>
                 <table class="table table-bordered" id="tabel">
                     <thead>

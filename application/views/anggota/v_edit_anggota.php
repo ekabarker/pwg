@@ -32,7 +32,7 @@ $anggota = $this->M_Anggota->get($id)[0];
                 </div>
                 <div class="form-group">
                     <label for="nama">Tempat Lahir</label>
-                    <input type="text" class="form-control" value="<?php echo $anggota->tempat_lahir ?>" id="tmpt_lahir">
+                    <input type="text" class="form-control text-capitalize" value="<?php echo $anggota->tempat_lahir ?>" id="tmpt_lahir">
                 </div>
                 <div class="form-group">
                     <label for="nama">Alamat</label>

@@ -4,6 +4,7 @@
 <script src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
+  var role = $("#role").val();
   var tabel = $("#tabel").DataTable({
     "responsive": true,
     "autoWidth": false,
@@ -11,6 +12,10 @@
       url: "agenda/getAll",
       dataSrc: function(data) {
         return data.map(function(d) {
+          var aksi = "<a href='home?tampil=agenda&page=lihat_agenda&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> ";
+          if (role == 'admin') {
+            aksi += "<a href='home?tampil=agenda&page=edit_agenda&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteAgenda(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
+          }
           return {
             id: d.id,
             judul: d.judul,
@@ -19,7 +24,8 @@
             tempat: d.tempat,
             sarana: d.sarana,
             tanggal: d.tanggal,
-            aksi: "<a href='home?tampil=agenda&page=lihat_agenda&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> <a href='home?tampil=agenda&page=edit_agenda&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteAgenda(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
+            aksi: aksi
+
           }
         });
       }

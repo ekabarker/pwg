@@ -36,12 +36,12 @@ class Agenda extends CI_Controller
             "tanggal" => date('Y-m-d')
         );
 
-        $filename = $this->generateRandomString().'-'.date('Y-m-d');
-        file_put_contents("agenda/".$filename, $this->input->post("deskripsi"));
+        $filename = $this->generateRandomString() . '-' . date('Y-m-d');
+        file_put_contents("agenda/" . $filename, $this->input->post("deskripsi"));
         $data["data"] = $filename;
 
-        $filename = $this->generateRandomString().'-'.date('Y-m-d');
-        file_put_contents("agenda/sarana/".$filename, $this->input->post("sarana"));
+        $filename = $this->generateRandomString() . '-' . date('Y-m-d');
+        file_put_contents("agenda/sarana/" . $filename, $this->input->post("sarana"));
         $data["sarana"] = $filename;
 
 
@@ -65,6 +65,14 @@ class Agenda extends CI_Controller
 
         );
 
+        $filename = $this->generateRandomString() . "-" . date('y-m-d');
+        file_put_contents("agenda/" . $filename, $this->input->post("deskripsi"));
+        $data["data"] = $filename;
+
+        $filename = $this->generateRandomString() . "-" . date('y-m-d');
+        file_put_contents("agenda/sarana/" . $filename, $this->input->post("sarana"));
+        $data["sarana"] = $filename;
+
         if ($this->M_Agenda->update($id, $data)) {
             echo "Berhasil menyimpan data";
         } else {
@@ -83,7 +91,8 @@ class Agenda extends CI_Controller
         }
     }
 
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 10)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';

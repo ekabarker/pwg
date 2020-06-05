@@ -13,9 +13,10 @@
       dataSrc: function(data) {
         return data.map(function(d) {
           var aksi = "<a href='home?tampil=artikel&page=lihat_artikel&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> ";
-          if(role == 'admin') {
+          if (role == 'admin') {
             aksi += "<a href='home?tampil=artikel&page=edit_artikel&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteArtikel(" + d.id + ")' class='btn btn-danger'>Hapus</button>";
           }
+
           return {
             id: d.id,
             judul: d.judul,

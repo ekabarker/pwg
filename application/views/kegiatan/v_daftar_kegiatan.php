@@ -11,7 +11,9 @@ $footer = "footer_daftar_kegiatan.php";
 
             </div>
             <div class="card-body">
-                <a href="?tampil=kegiatan&page=buat_kegiatan"><button class="btn btn-primary">Buat Kegiatan</button></a></br><br>
+                <?php if ($user->role == 'admin') { ?>
+                    <a href="?tampil=kegiatan&page=buat_kegiatan"><button class="btn btn-primary">Buat Kegiatan</button></a></br><br>
+                <?php } ?>
                 <table class="table table-bordered" id="tabel">
                     <thead>
                         <tr>

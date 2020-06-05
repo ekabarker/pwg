@@ -20,6 +20,12 @@ class M_Kegiatan extends CI_Model
         return $this->db->insert("kegiatan", $kegiatan);
     }
 
+    function update($id, $data)
+    {
+        return $this->db->where("id", $id)
+            ->update("kegiatan", $data);
+    }
+
     function delete($id)
     {
         return $this->db->where("id", $id)

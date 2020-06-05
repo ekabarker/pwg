@@ -2,7 +2,13 @@
 $footer = "footer_edit_Kegiatan.php";
 $id = $this->input->get("id");
 $kegiatan = $this->M_Kegiatan->get($id)[0];
+
+$myfile = fopen("kegiatan/" . $kegiatan->data, "r") or die("Unable to open file!");
+$data = fread($myfile, filesize("kegiatan/" . $kegiatan->data));
+fclose($myfile);
+
 ?>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card card-outline card-info">
@@ -22,13 +28,13 @@ $kegiatan = $this->M_Kegiatan->get($id)[0];
                     <br>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
-                        <textarea class="textarea-editor" id="deskripsi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $kegiatan->data ?></textarea>
+                        <textarea class="textarea-editor" id="deskripsi" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $data ?></textarea>
                     </div>
 
 
                 </div>
 
-                <a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary" onclick="simpanKegiatan()">Simpan</button></a>
+                <a href="?tampil=kegiatan&page=daftar_kegiatan"><button class="btn btn-primary" onclick="simpanKegiatan()">Simpan</button></a>
                 <a href="?tampil=kegiatan&page=daftar_kegiatan"><button class="btn btn-primary" onclick="return confirm('Yakin ingin membatalkan peruahan?');">Batal</button></a>
             </div>
         </div>

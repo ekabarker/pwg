@@ -2,8 +2,8 @@
 $id = $this->input->get("id");
 $artikel = $this->M_Artikel->get($id)[0];
 
-$myfile = fopen("artikel/".$artikel->data, "r") or die("Unable to open file!");
-$data = fread($myfile,filesize("artikel/".$artikel->data));
+$myfile = fopen("artikel/" . $artikel->data, "r") or die("Unable to open file!");
+$data = fread($myfile, filesize("artikel/" . $artikel->data));
 fclose($myfile);
 
 $footer = "footer_lihat_artikel.php";
@@ -23,20 +23,17 @@ $footer = "footer_lihat_artikel.php";
 
             </div>
             <div style="margin: 0 auto">
-                
-                
-                <div ><a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary">Kembali</button></a></div><br/>
+
+
+                <div><a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary">Kembali</button></a></div>
                 <!-- Your share button code -->
-                <div class="fb-share-button" 
-                    id="btn-share"
-                    data-href="https://pwg.inditech.id/home?tampil=artikel&page=lihat_artikel&id=<?php echo $id ?>" 
-                    data-layout="button_count">
+                <div class="fb-share-button" id="btn-share" data-href="https://pwg.inditech.id/home?tampil=artikel&page=lihat_artikel&id=<?php echo $id ?>" data-layout="button_count">
                 </div>
-                <br/>
-                <br/>
+                <br />
+                <br />
             </div>
-            
-            
+
+
         </div>
     </div>
     <!-- /.col-->

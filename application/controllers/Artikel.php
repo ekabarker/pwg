@@ -33,8 +33,8 @@ class Artikel extends CI_Controller
             "tanggal" => date('Y-m-d')
         );
 
-        $filename = $this->generateRandomString().'-'.date('Y-m-d');
-        file_put_contents("artikel/".$filename, $this->input->post("data"));
+        $filename = $this->generateRandomString() . '-' . date('Y-m-d');
+        file_put_contents("artikel/" . $filename, $this->input->post("data"));
         $data["data"] = $filename;
 
         if ($this->M_Artikel->insert($data)) {
@@ -54,7 +54,7 @@ class Artikel extends CI_Controller
 
         $artikel = $this->M_Artikel->get($id)[0];
         $filename = $artikel->data;
-        file_put_contents("artikel/".$filename, $this->input->post("data"));
+        file_put_contents("artikel/" . $filename, $this->input->post("data"));
 
         if ($this->M_Artikel->update($id, $data)) {
             echo "Berhasil menyimpan data";
@@ -74,7 +74,8 @@ class Artikel extends CI_Controller
         }
     }
 
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 10)
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';

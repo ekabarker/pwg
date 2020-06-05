@@ -1,6 +1,4 @@
 <?php
-
-$jenis_pengobatan = $this->M_JenisPengobatan->getAll();
 $footer = "footer_registrasi_pengobatan.php";
 ?>
 <div class="row">
@@ -20,16 +18,6 @@ $footer = "footer_registrasi_pengobatan.php";
                 <div class="form-group">
                     <label for="jam">Jam</label>
                     <select name="jam" id="jam" class="form-control"></select>
-                </div>
-                <div class="form-group">
-                    <label for="jenis">Jenis Pengobatan</label>
-                    <select name="jenis" id="jenis" class="form-control">
-                    <?php
-                        foreach($jenis_pengobatan as $jenis) {
-                            echo "<option value='$jenis->id'>$jenis->nama</option>";
-                        }
-                    ?>
-                    </select>
                 </div>
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi</label>

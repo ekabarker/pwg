@@ -12,13 +12,12 @@ $footer = null;
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
                         <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url('assets/img/profile/') . ($anggota->gambar ? $anggota->anggota : 'default.jpg') ?>" alt="User profile picture">
+                            <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url('assets/img/profile/') . ($anggota->gambar ? $anggota->gambar : 'default.jpg'); ?>" alt="User profile picture">
                         </div>
 
                         <h3 class="profile-username text-center"><b><?php echo $anggota->username ?></b></h3>
                         <hr>
 
-                        <!--<p class="text-muted text-center"><b><?php echo $anggota->nama ?></b></p>-->
                         <!-- card header-->
                         <div class="card card-light">
                             <div class="card-header">
@@ -27,7 +26,7 @@ $footer = null;
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <strong><i class="fas fa-signature mr-1"></i> Nama</strong>
-                                <p class="text-muted">
+                                <p class="text-muted text-capitalize">
                                     <?php echo $anggota->nama ?>
                                 </p>
 
@@ -35,7 +34,7 @@ $footer = null;
 
                                 <strong><i class="fas fa-birthday-cake mr-2"></i> Kelahiran</strong>
                                 <p class="text-muted">
-                                    <?php echo $anggota->tempat_lahir ?>, <?php echo $anggota->tanggal_lahir ?>
+                                    <?php echo $anggota->tempat_lahir ?>, <?php echo date('d F Y', strtotime($anggota->tanggal_lahir)); ?>
                                 </p>
 
                                 <hr>
@@ -70,7 +69,7 @@ $footer = null;
 
                                 <strong><i class="fas fa-calendar-alt mr-2"></i>Bergabung sejak</strong>
                                 <p class="text-muted">
-                                    <?php echo date('d F Y') ?>
+                                    <?php echo date('d F Y', strtotime($anggota->tgl_buat)); ?>
                                 </p>
 
                             </div>

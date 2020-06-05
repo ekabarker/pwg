@@ -5,18 +5,20 @@
 <script src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
     var tabel = $("#tabel").DataTable({
+        "responsive": true,
+        "autoWidth": false,
         ajax: {
             url: 'pengobatan/getAll',
             dataSrc: function(data) {
                 return data.map(function(item) {
                     var status = "Menunggu";
-                    if(item.status == 1) {
+                    if (item.status == 1) {
                         status = "Selesai";
-                    } else if(item.status == 2) {
+                    } else if (item.status == 2) {
                         status = "Dibatalkan";
                     }
                     var aksi = "<a href='home?page=lihat_pengobatan&id=" + item.id + "'><button class='btn btn-primary'>Lihat</button></a>";
-                    if(item.status == 0) {
+                    if (item.status == 0) {
                         aksi += " <button onClick='konfirmasi(" + item.id + ")' class='btn btn-success'>Konfirmasi</button> <button onClick='batalkan(" + item.id + ")' class='btn btn-danger'>Batalkan</button>";
                     }
                     return {
@@ -30,13 +32,24 @@
                 });
             }
         },
-        columns: [
-            {data: 'id'},
-            {data: 'nama_anggota'},
-            {data: 'tanggal'},
-            {data: 'jam'},
-            {data: 'status'},
-            {data: 'aksi'}
+        columns: [{
+                data: 'id'
+            },
+            {
+                data: 'nama_anggota'
+            },
+            {
+                data: 'tanggal'
+            },
+            {
+                data: 'jam'
+            },
+            {
+                data: 'status'
+            },
+            {
+                data: 'aksi'
+            }
         ]
     })
 

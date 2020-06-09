@@ -2,6 +2,12 @@
 $id = $this->session->user->id;
 $anggota = $this->M_Anggota->get($id)[0];
 $footer = null;
+$status = $this->input->get("status");
+if($status == 'false') {
+    echo "<script>alert('Gagal merubah password')</script>";
+} else if($status == 'true') {
+    echo "<script>alert('Berhasil merubah password')</script>";
+}
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -22,7 +28,8 @@ $footer = null;
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-
+                                <form action="anggota/ubahPassword" method="post">
+                                <input type="text" name="id" value="<?php echo $this->session->user->id ?>" hidden>
                                 <strong><i class="fas fa-fw fa-user"></i> Password Lama</strong>
                                 <input type="password" class="form-control" id="password" name="password">
                                 <?php echo form_error('password', ' <small class="text-danger pl-3">', '</small>'); ?>
@@ -41,11 +48,12 @@ $footer = null;
                                 <div class="col" style="margin: 0 auto">
                                     <div class="row">
                                         <div>
-                                            <a href="?page=profil"><button class="btn btn-primary">Simpan</button></a>
+                                            <button class="btn btn-primary" type="submit">Simpan</button>
                                             <a href="?page=profil"><button class="btn btn-primary" onclick="return confirm('Yakin ingin membatalkan peruahan?');">Batal</button></a>
                                         </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                             <!-- /.card-body -->
                         </div>

@@ -9,6 +9,7 @@ class Agenda extends CI_Controller
         parent::__construct();
 
         $this->load->model("M_Agenda");
+        $this->load->model("M_Anggota");
     }
 
     function is_login()
@@ -110,22 +111,29 @@ class Agenda extends CI_Controller
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
-            'smtp_user' => 'xxx',
-            'smtp_pass' => 'xxx',
+            'smtp_user' => 'eka.supartawan17@gmail.com', // email gmail
+            'smtp_pass' => 'jkl48ghzsf24', // password gmail
             'mailtype'  => 'html', 
             'charset'   => 'iso-8859-1'
         );
         $this->load->library('email', $config);
-        $this->email->set_newline("\r\n");
+       
         
-        $this->email->from('mygmail@gmail.com', 'myname');
+        
         $users = $this->M_Anggota->getAll();
         foreach($users as $user) {
-            $this->email->to($user->email);
-            $this->email->subject("");
-            $this->email->message('Ada agenda baru, lihat disini '.$url);  
-            $result = $this->email->send(); 
+            if($user->role == "anggota") {
+                $this->email->set_newline("\r\n");
+                $this->email->from('eka.supartawan17@gmail.com', 'Admin');
+                $this->email->to($user->email);
+                $this->email->subject("Ada Agenda");
+                $this->email->message('Ada agenda baru, lihat disini '.$url);  
+                $result = $this->email->send(); 
+            }
+            
         }
+
+        echo $this->email->print_debugger();
         
     }
 }

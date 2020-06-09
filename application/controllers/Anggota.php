@@ -63,23 +63,35 @@ class Anggota extends CI_Controller
     public function ubahPassword()
     {
         $this->is_login();
-        $id = $this->input->post("id");
-        $data['user'] = $this->db->get_where('anggota', ['username' => $this->session->userdata('username')])->row_array();
+        
 
-        $this->form_validation->set_rules('password', 'Password', 'required|trim', [
-            'required' => 'Password wajib diisi'
-        ]);
-        $this->form_validation->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]', [
-            'required' => 'Password wajib diisi',
-            'matches' => 'Password tidak cocok',
-            'min_length' => ' Password minimal-8 karakter!'
-        ]);
-        $this->form_validation->set_rules('new_password2', ' Konfirmasi Password Baru', 'required|trim|min_length[8]|matches[new_password1]');
+        // $this->form_validation->set_rules('password', 'Password', 'required|trim', [
+        //     'required' => 'Password wajib diisi'
+        // ]);
+        // $this->form_validation->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]', [
+        //     'required' => 'Password wajib diisi',
+        //     'matches' => 'Password tidak cocok',
+        //     'min_length' => ' Password minimal-8 karakter!'
+        // ]);
+        // $this->form_validation->set_rules('new_password2', ' Konfirmasi Password Baru', 'required|trim|min_length[8]|matches[new_password1]');
 
-        if ($this->form_validation->run() == false) {
-            redirect('?page=edit_profil');
-        } else {
-        }
+        // if ($this->form_validation->run() == false) {
+        //     redirect('?page=edit_profil&status=false');
+        // } else {
+            $id = $this->input->post("id");
+            $password_lama = $this->input->post("password");
+            $password_baru = $this->input->post("new_password1");
+            $password_baru2 = $this->input->post("new_password2");
+            $user = $this->M_Anggota->get($id)[0];
+            if($user->password == md5($password_lama) && $password_baru == $password_baru2) {
+                if($this->M_Anggota->update($id, [
+                    'password' => md5($password_baru)
+                ])) 
+                redirect('?page=edit_profil&status=true');
+            } else {
+                redirect('?page=edit_profil&status=false');
+            }
+        // }
     }
 
     public function delete()

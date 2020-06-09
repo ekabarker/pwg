@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2020 at 10:54 AM
+-- Generation Time: Jun 09, 2020 at 11:06 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -55,6 +55,7 @@ INSERT INTO `agenda` (`id`, `anggota_id`, `judul`, `data`, `pelaksanaan`, `tempa
 CREATE TABLE `anggota` (
   `id` int(11) NOT NULL,
   `nama` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `tempat_lahir` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
@@ -72,20 +73,18 @@ CREATE TABLE `anggota` (
 -- Dumping data for table `anggota`
 --
 
-INSERT INTO `anggota` (`id`, `nama`, `tanggal_lahir`, `tempat_lahir`, `alamat`, `no_tlp`, `agama`, `jenis_kelamin`, `username`, `password`, `role`, `gambar`, `tgl_buat`) VALUES
-(1, 'I Putu Eka Supartawan', '1997-12-23', 'Klungkung', 'Jl. Angsoka Semarapura Klod', '08123445', 'Hindu', 'Laki-laki', 'borosuka', 'd6e017cb5e50414afec94ab929676b11', 'admin', '', '0000-00-00'),
-(6, 'sita', '1998-12-21', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '0', 'Hindu', 'Perempuan', 'sita', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
-(7, 'Putu Eka', '1997-12-23', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '0', 'Hindu', 'Laki-laki', 'barkere91', 'e012688a3e0959bed296423071085cf0', 'anggota', '', '0000-00-00'),
-(10, 'opik cahaya', '2005-12-21', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '0', 'Hindu', 'Perempuan', 'opik', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(11, 'Putu', '1998-12-21', 'Klungkung', 'Jln angsoka semarapura', '0', 'Hindu', 'Laki-laki', 'putu123', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(15, 'Kadek Putri Sita Rahayu', '2000-02-23', 'Klungkung', 'Jln angsoka semarapura', '0', 'Hindu', 'Perempuan', 'putri', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(17, 'Eka Supartawan', '1997-12-23', 'Klungkung', 'Jln Kenyeri No. 70', '0', 'Hindu', 'Laki-laki', 'tes', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(18, 'putu supartawan', '1997-12-23', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '2147483647', 'Hindu', 'Laki-laki', 'notelp', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(19, 'tes no tlp', '2000-12-12', 'Klungkung', 'Jln Kenyeri No. 70', '081338304864', 'Hindu', 'Laki-laki', 'tlp', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(20, 'opik', '2005-12-01', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '081387465345', 'Hindu', 'Perempuan', 'opik123', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(21, 'komang', '2000-11-11', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '081234234234', 'Hindu', 'Laki-laki', 'komang', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(22, 'pasek', '1229-02-23', 'Klungkung', 'Jln angsoka semarapura', '081234765789', 'Hindu', 'Laki-laki', 'pasek', '6467a14a8535654e083a05a3141be6bc', 'anggota', '', '0000-00-00'),
-(23, 'tes gambar', '2020-06-01', 'Klungkung', 'Jln angsoka semarapura', '081234747789', 'Hindu', 'Laki-laki', 'gambar', '6467a14a8535654e083a05a3141be6bc', 'anggota', 'default.jpg', '0000-00-00');
+INSERT INTO `anggota` (`id`, `nama`, `email`, `tanggal_lahir`, `tempat_lahir`, `alamat`, `no_tlp`, `agama`, `jenis_kelamin`, `username`, `password`, `role`, `gambar`, `tgl_buat`) VALUES
+(1, 'I Putu Eka Supartawan', '', '1997-12-23', 'Klungkung', 'Jl. Angsoka Semarapura Klod', '08123445', 'Hindu', 'Laki-laki', 'borosuka', 'd6e017cb5e50414afec94ab929676b11', 'admin', '', '0000-00-00'),
+(6, 'sita123', '', '1998-12-21', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '0', 'Hindu', 'Perempuan', 'sita', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 'turtle7.png', '0000-00-00'),
+(7, 'Putu Eka', '', '1997-12-23', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '0', 'Hindu', 'Laki-laki', 'barkere91', 'e012688a3e0959bed296423071085cf0', 'anggota', 'share424@gmail.com', '0000-00-00'),
+(10, 'opik cahaya', '', '2005-12-21', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '0', 'Hindu', 'Perempuan', 'opik', '6467a14a8535654e083a05a3141be6bc', 'anggota', 'borosukajr17@gmail.com', '0000-00-00'),
+(17, 'Eka Supartawan', '', '1997-12-23', 'Klungkung', 'Jln Kenyeri No. 70', '0', 'Hindu', 'Laki-laki', 'tes', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
+(18, 'putu supartawan', '', '1997-12-23', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '2147483647', 'Hindu', 'Laki-laki', 'notelp', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
+(19, 'tes no tlp', '', '2000-12-12', 'Klungkung', 'Jln Kenyeri No. 70', '081338304864', 'Hindu', 'Laki-laki', 'tlp', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
+(20, 'opik', '', '2005-12-01', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '081387465345', 'Hindu', 'Perempuan', 'opik123', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
+(21, 'komang', '', '2000-11-11', 'Klungkung', 'Jln angsoka semarapura kelod, Klungkung', '081234234234', 'Hindu', 'Laki-laki', 'komang', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
+(22, 'pasek', '', '1229-02-23', 'Klungkung', 'Jln angsoka semarapura', '081234765789', 'Hindu', 'Laki-laki', 'pasek', '6467a14a8535654e083a05a3141be6bc', 'admin', '', '0000-00-00'),
+(23, 'tes gambar', '', '2020-06-01', 'Klungkung', 'Jln angsoka semarapura', '081234747789', 'Hindu', 'Laki-laki', 'gambar', '6467a14a8535654e083a05a3141be6bc', 'admin', 'default.jpg', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -106,7 +105,8 @@ CREATE TABLE `artikel` (
 --
 
 INSERT INTO `artikel` (`id`, `anggota_id`, `data`, `judul`, `tanggal`) VALUES
-(28, 17, '8xOanx588l-2020-06-01', 'Contoh', '2020-06-01');
+(28, 17, '8xOanx588l-2020-06-01', 'Contoh', '2020-06-01'),
+(29, 6, 'KwbIH0tM8T-2020-06-09', 'dasdsad', '2020-06-09');
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,28 @@ CREATE TABLE `kegiatan` (
 --
 
 INSERT INTO `kegiatan` (`id`, `anggota_id`, `judul`, `data`, `tanggal`) VALUES
-(7, 17, 'Kegiatan tes', 'UrJIBRbeuc-2020-06-01', '2020-06-01');
+(7, 17, 'Kegiatan tes', 'UrJIBRbeuc-2020-06-01', '2020-06-01'),
+(8, 6, 'dasda', 'bZ4wUMyjti-2020-06-09', '2020-06-09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `libur`
+--
+
+CREATE TABLE `libur` (
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `catatan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `libur`
+--
+
+INSERT INTO `libur` (`id`, `tanggal`, `catatan`) VALUES
+(1, '2020-06-10', 'libur capek'),
+(2, '2020-06-11', 'dasd');
 
 -- --------------------------------------------------------
 
@@ -242,6 +263,13 @@ ALTER TABLE `kegiatan`
   ADD KEY `anggota_id` (`anggota_id`);
 
 --
+-- Indexes for table `libur`
+--
+ALTER TABLE `libur`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `tanggal` (`tanggal`);
+
+--
 -- Indexes for table `pengobatan`
 --
 ALTER TABLE `pengobatan`
@@ -270,7 +298,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `jam_pengobatan`
@@ -288,7 +316,13 @@ ALTER TABLE `jenis_pengobatan`
 -- AUTO_INCREMENT for table `kegiatan`
 --
 ALTER TABLE `kegiatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `libur`
+--
+ALTER TABLE `libur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pengobatan`

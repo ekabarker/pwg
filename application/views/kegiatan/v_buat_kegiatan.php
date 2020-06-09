@@ -23,7 +23,7 @@ $footer = "footer_buat_kegiatan.php";
                     </div>
                 </div>
 
-                <a href="?tampil=kegiatan&page=daftar_kegiatan"><button class="btn btn-primary" onclick="simpanKegiatan()">Simpan</button></a>
+                <button class="btn btn-primary" onclick="simpanKegiatan()">Simpan</button>
             </div>
         </div>
     </div>

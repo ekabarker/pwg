@@ -24,6 +24,13 @@ class M_Pengobatan extends CI_Model
 
     function checkDate($date)
     {
+        $is_libur = $this->db->select("*")
+                        ->from("libur")
+                        ->where("tanggal", $date)
+                        ->get()->result();
+        if(count($is_libur) >= 1) {
+            return $this->db->select("id as jam_id")->from("jam_pengobatan")->get()->result();
+        }
         return $this->db->select("*")
             ->from("pengobatan")
             ->join("jam_pengobatan", "pengobatan.jam_id = jam_pengobatan.id")

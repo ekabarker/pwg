@@ -12,6 +12,7 @@ class Pengobatan extends CI_Controller
         $this->load->model("M_Agenda");
         $this->load->model("M_Kegiatan");
         $this->load->model("M_Pengobatan");
+        $this->load->model("M_Libur");
     }
 
     public function check_date()
@@ -32,6 +33,7 @@ class Pengobatan extends CI_Controller
                 $free[] = $j;
             }
         }
+        
 
         echo json_encode($free);
     }
@@ -69,5 +71,27 @@ class Pengobatan extends CI_Controller
         return $this->M_Pengobatan->update($id, [
             "status" => 2
         ]);
+    }
+
+    public function libur()
+    {
+        $data = [
+            'tanggal' => $this->input->post('tanggal'),
+            'catatan' => $this->input->post('catatan')
+        ];
+
+        $this->M_Libur->insert($data);
+    }
+
+    public function get_libur()
+    {
+        $data = $this->M_Libur->getAll();
+        echo json_encode($data);
+    }
+
+    public function delete_libur()
+    {
+        $id = $this->input->post('id');
+        $this->M_Libur->delete($id);
     }
 }

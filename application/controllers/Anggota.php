@@ -38,11 +38,26 @@ class Anggota extends CI_Controller
             "username" => $this->input->post("username")
         );
 
-        if ($this->M_Anggota->update($id, $data)) {
-            echo "Berhasil menyimpan data";
+        $config['upload_path']          = './assets/img/profile/';
+        $config['allowed_types']        = 'jpg|png';
+        $config['max_size']             = 2048;
+
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('gambar'))
+        {
+            redirect('?page=profil&status=false');
         } else {
-            echo "Gagal menyimpan data";
+            // print_r($this->upload->data()['file_name']);
+            $data['gambar'] = $this->upload->data()['file_name'];
+            // print_r($data);
+            if ($this->M_Anggota->update($id, $data)) {
+                redirect('?page=profil&status=true');
+            } else {
+                redirect('?page=profil&status=false');
+            }
         }
+
+        
     }
 
     public function ubahPassword()
@@ -77,4 +92,6 @@ class Anggota extends CI_Controller
             echo "Gagal menghapus data";
         }
     }
+
+   
 }

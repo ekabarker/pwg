@@ -15,6 +15,7 @@
             },
             success: function(result) {
                 alert("Data berhasil disimpan");
+                window.location.href = "?tampil=artikel&page=daftar_artikel";
             },
             error: function(err) {
                 alert("Data gagal disimpan");

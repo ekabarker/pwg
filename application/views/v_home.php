@@ -21,6 +21,12 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar/main.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar-daygrid/main.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar-timegrid/main.min.css">
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar-bootstrap/main.min.css">
+  
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -126,16 +132,16 @@
                   </p>
                 </a>
               </li>
-
+              <?php } else { ?>
               <li class="nav-item">
-                <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
+                <a href="<?php echo base_url() ?>?page=daftar_jadwal" class="nav-link">
                   <i class="nav-icon fas fa-calendar-alt"></i>
                   <p>
                     Jadwal
                   </p>
                 </a>
               </li>
-            <?php } else { ?>
+            
               <li class="nav-item">
                 <a href="<?php echo base_url() ?>?page=daftar_pengobatan" class="nav-link">
                   <i class="nav-icon fas fa-calendar-alt"></i>

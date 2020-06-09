@@ -1,5 +1,6 @@
 <!-- Summernote -->
 <script>
+    
     function simpanAnggota() {
         var nama = $("#nama").val();
         var tanggal_lahir = $("#tgl_lahir").val();

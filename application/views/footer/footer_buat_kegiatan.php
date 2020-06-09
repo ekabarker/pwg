@@ -15,6 +15,7 @@
             },
             success: function(result) {
                 alert("Data berhasil disimpan");
+                window.location.href = "?tampil=kegiatan&page=daftar_kegiatan";
             },
             error: function(err) {
                 alert("Data gagal disimpan");

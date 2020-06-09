@@ -53,17 +53,18 @@
         </div>
         <div class="row mx-auto">
           <!-- /.col -->
-          <div class="mx-auto">
+          <div class="mx-auto mb-2">
             <button type=" submit" class="btn btn-primary btn-block">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
         </form>
 
-
+        <!--
         <div class=" small mt-2 text-center">
           <a href="forgot-password.html">Lupa Password</a>
         </div>
+        -->
         <div class=" small mb-0 text-center">
           <a href="<?php echo base_url('login/registrasi'); ?>" class="text-center">Daftar Anggota Baru</a>
         </div>

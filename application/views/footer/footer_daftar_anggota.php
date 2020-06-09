@@ -22,6 +22,7 @@
                         username: d.username,
                         pass: d.password,
                         role: d.role,
+                        tgl_buat: d.tgl_buat,
                         aksi: "<a href='home?tampil=anggota&page=lihat_anggota&id=" + d.id + "'><button class='btn btn-primary'>Lihat</button></a> <a href='home?tampil=anggota&page=edit_anggota&id=" + d.id + "'><button class='btn btn-success'>Edit</button></a> <button onClick='deleteAnggota(" + d.id + ")' class='btn btn-danger'>Hapus</button>"
                     }
                 });
@@ -35,6 +36,9 @@
             },
             {
                 data: "role"
+            },
+            {
+                data: "tgl_buat"
             },
             {
                 data: "aksi"

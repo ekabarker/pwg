@@ -31,4 +31,24 @@
             }
         })
     }
+
+    function ubahPassword() {
+        var password = $("password").val();
+        var new_password = $("new_password1").val();
+        $.ajax({
+            url: "anggota/ubahPassword",
+            method: "POST",
+            data: {
+                password: password,
+                new_password1: new_password1,
+                id: <?php echo $id ?>
+            },
+            success: function(result) {
+                alert("Data berhasil disimpan");
+            },
+            error: function(err) {
+                alert("Data gagal disimpan");
+            }
+        })
+    }
 </script>

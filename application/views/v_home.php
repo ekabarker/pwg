@@ -80,15 +80,15 @@
             <li class="nav-header">
               <h5>Dashboard</h5>
             </li>
-            <?php if($user->role == 'admin') { ?>
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>?tampil=anggota&page=daftar_anggota" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Anggota
-                </p>
-              </a>
-            </li>
+            <?php if ($user->role == 'admin') { ?>
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>?tampil=anggota&page=daftar_anggota" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Anggota
+                  </p>
+                </a>
+              </li>
             <?php } ?>
             <li class="nav-item">
               <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
@@ -117,33 +117,33 @@
             <li class="nav-header">
               <h5>Penjadwalan</h5>
             </li>
-            <?php if($user->role == 'admin') { ?>
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>?page=antrian_pasien" class="nav-link">
-                <i class="nav-icon fas fa-chart-line"></i>
-                <p>
-                  Antrian Pasien
-                </p>
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <p>
-                  Jadwal
-                </p>
-              </a>
-            </li>
+            <?php if ($user->role == 'admin') { ?>
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>?page=antrian_pasien" class="nav-link">
+                  <i class="nav-icon fas fa-chart-line"></i>
+                  <p>
+                    Antrian Pasien
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>?tampil=artikel&page=daftar_artikel" class="nav-link">
+                  <i class="nav-icon fas fa-calendar-alt"></i>
+                  <p>
+                    Jadwal
+                  </p>
+                </a>
+              </li>
             <?php } else { ?>
-            <li class="nav-item">
-              <a href="<?php echo base_url() ?>?page=daftar_pengobatan" class="nav-link">
-                <i class="nav-icon fas fa-calendar-alt"></i>
-                <p>
-                  Registrasi Pengobatan
-                </p>
-              </a>
-            </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>?page=daftar_pengobatan" class="nav-link">
+                  <i class="nav-icon fas fa-calendar-alt"></i>
+                  <p>
+                    Registrasi Pengobatan
+                  </p>
+                </a>
+              </li>
             <?php } ?>
             <br>
             <li class="nav-item">
@@ -237,8 +237,8 @@
     <script src="<?php echo base_url() ?>assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS <?php echo base_url() ?>assets/-->
     <script src="<?php echo base_url() ?>assets/plugins/chart.js/Chart.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/dist/myscript.js"></script>
+    <!--<script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>-->
+    <!--<script src="<?php echo base_url() ?>assets/dist/myscript.js"></script>-->
 
 
     <?php

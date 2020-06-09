@@ -31,7 +31,7 @@ class M_Pengobatan extends CI_Model
             ->get()->result();
     }
 
-    public function getAllJam()
+    function getAllJam()
     {
         return $this->db->get("jam_pengobatan")->result();
     }

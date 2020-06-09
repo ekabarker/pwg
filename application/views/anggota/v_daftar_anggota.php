@@ -17,6 +17,7 @@ $footer = "footer_daftar_anggota.php";
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Status</th>
+                            <th>Bergabung Sejak</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>

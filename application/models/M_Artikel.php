@@ -5,7 +5,7 @@ class M_Artikel extends CI_Model
 {
     function getAll()
     {
-        return $this->db->select(["id", "judul", "tanggal"])
+        return $this->db->select(["id", "judul", "sub_judul", "tanggal"])
             ->get("artikel")->result();
     }
 

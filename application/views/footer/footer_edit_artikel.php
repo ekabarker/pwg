@@ -7,11 +7,13 @@
 
         var data = $("#artikel-editor").val();
         var judul = $("#judul").val();
+        var sub_judul = $("#sub_judul").val();
         $.ajax({
             url: "artikel/update",
             method: "POST",
             data: {
                 judul: judul,
+                sub_judul: sub_judul,
                 data: data,
                 id: <?php echo $id ?>
             },

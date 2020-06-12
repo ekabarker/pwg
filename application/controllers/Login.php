@@ -13,7 +13,7 @@ class Login extends CI_Controller
 
     public function index()
     {
-        $this->load->view("v_login");
+        $this->load->view("v_loginsb");
     }
 
     public function cekLogin()
@@ -71,7 +71,7 @@ class Login extends CI_Controller
 
         if ($this->form_validation->run() == false) {
 
-            $this->load->view('v_registrasi');
+            $this->load->view('v_registrasiSb');
         } else {
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),

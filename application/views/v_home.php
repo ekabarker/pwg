@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -26,7 +28,7 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar-daygrid/main.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar-timegrid/main.min.css">
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fullcalendar-bootstrap/main.min.css">
-  
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -67,7 +69,6 @@
             $user = $this->session->user;
             ?>
             <img src="<?php echo base_url('assets/img/profile/') . ($user->gambar ? $user->gambar : 'default.jpg') ?>" class="img-circle elevation-2" alt="User Image">
-
           </div>
           <div class="info">
             <a href="?page=profil" class="d-block"><?php echo ($this->session->user->username) ?></a>
@@ -80,11 +81,18 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+            <!--
             <li class="nav-header">
               <h5><?php echo ($user->role == 'admin' ? 'Administrator' : 'Anggota') ?></h5>
             </li>
-            <li class="nav-header">
-              <h5>Dashboard</h5>
+            -->
+            <li class="nav-item">
+              <a href="?page=home_konten" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
+                <p>
+                  Home
+                </p>
+              </a>
             </li>
             <?php if ($user->role == 'admin') { ?>
               <li class="nav-item">
@@ -120,19 +128,18 @@
                 </p>
               </a>
             </li>
-            <li class="nav-header">
+            <!--<li class="nav-header">
               <h5>Penjadwalan</h5>
-            </li>
+            </li>-->
             <?php if ($user->role == 'admin') { ?>
               <li class="nav-item">
-                <a href="<?php echo base_url() ?>?page=antrian_pasien" class="nav-link">
+                <a href="<?php echo base_url() ?>?tampil=antrian&page=antrian_pasien" class="nav-link">
                   <i class="nav-icon fas fa-chart-line"></i>
                   <p>
                     Antrian Pasien
                   </p>
                 </a>
               </li>
-              <?php } else { ?>
               <li class="nav-item">
                 <a href="<?php echo base_url() ?>?page=daftar_jadwal" class="nav-link">
                   <i class="nav-icon fas fa-calendar-alt"></i>
@@ -141,9 +148,10 @@
                   </p>
                 </a>
               </li>
-            
+            <?php }  ?>
+            <?php if ($user->role == 'anggota') { ?>
               <li class="nav-item">
-                <a href="<?php echo base_url() ?>?page=daftar_pengobatan" class="nav-link">
+                <a href="<?php echo base_url() ?>?tampil=pengobatan&page=daftar_pengobatan" class="nav-link">
                   <i class="nav-icon fas fa-calendar-alt"></i>
                   <p>
                     Registrasi Pengobatan
@@ -174,12 +182,13 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Dashboard</h1>
+              <h1 class="m-0 text-dark"><?php echo ($user->role == 'admin' ? 'Administrator' : 'Anggota') ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <!--<li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard</li> 
+                  -->
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -243,8 +252,12 @@
     <script src="<?php echo base_url() ?>assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS <?php echo base_url() ?>assets/-->
     <script src="<?php echo base_url() ?>assets/plugins/chart.js/Chart.min.js"></script>
-    <!--<script src="<?php echo base_url() ?>assets/dist/sweetalert2.all.min.js"></script>-->
-    <!--<script src="<?php echo base_url() ?>assets/dist/myscript.js"></script>-->
+    <!-- Bootstrap core JavaScript -->
+    <script src="<?php echo base_url() ?>assets/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="<?php echo base_url() ?>assets/js/clean-blog.min.js"></script>
 
 
     <?php

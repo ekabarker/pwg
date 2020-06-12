@@ -36,7 +36,7 @@
             success: function(data) {
                 alert('Berhasil mendaftar');
                 // location.reload();
-                window.location.href = "?page=daftar_pengobatan";
+                window.location.href = "?tampil=pengobatan&page=daftar_pengobatan";
             },
             error: function(err) {
                 alert('Gagal mendaftar');

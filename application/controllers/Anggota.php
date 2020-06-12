@@ -27,6 +27,7 @@ class Anggota extends CI_Controller
     {
         $this->is_login();
         $id = $this->input->post("id");
+        $anggota = $this->M_Anggota->get($id)[0];
         $data = array(
             "nama" => $this->input->post("nama"),
             "tanggal_lahir" => $this->input->post("tanggal_lahir"),
@@ -36,62 +37,59 @@ class Anggota extends CI_Controller
             "agama" => $this->input->post("agama"),
             "jenis_kelamin" => $this->input->post("jk"),
             "username" => $this->input->post("username")
+
         );
 
-        $config['upload_path']          = './assets/img/profile/';
-        $config['allowed_types']        = 'jpg|png';
-        $config['max_size']             = 2048;
+        $upload_gambar = $_FILES['gambar']['name'];
 
-        $this->load->library('upload', $config);
-        if ( ! $this->upload->do_upload('gambar'))
-        {
-            redirect('?page=profil&status=false');
-        } else {
-            // print_r($this->upload->data()['file_name']);
-            $data['gambar'] = $this->upload->data()['file_name'];
-            // print_r($data);
-            if ($this->M_Anggota->update($id, $data)) {
-                redirect('?page=profil&status=true');
+        if ($upload_gambar) {
+            $config['upload_path']          = './assets/img/profile/';
+            $config['allowed_types']        = 'jpg|png';
+            $config['max_size']             = 2048;
+
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('gambar')) {
+                $gambar_lama = $anggota->gambar;
+                if ($gambar_lama != 'default.jpg') {
+                    unlink(FCPATH . 'assets/img/profile/' . $gambar_lama);
+                }
+                $data['gambar'] = $this->upload->data()['file_name'];
+                $this->M_Anggota->update($id, $data);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success text-center" role="alert">Profile Anda Berhasil di Update</div>');
+                redirect('?page=profil');
             } else {
-                redirect('?page=profil&status=false');
+                $this->session->set_flashdata('error', '<div class="alert alert-danger text-center" role="alert">Profile Anda Gagal di Update</div>');
+                redirect('?page=profil');
             }
         }
 
-        
+        if ($this->M_Anggota->update($id, $data)) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success text-center" role="alert">Profile Anda Berhasil di Update</div>');
+            redirect('?page=profil');
+        } else {
+        }
     }
 
     public function ubahPassword()
     {
         $this->is_login();
-        
+        $id = $this->input->post("id");
+        $anggota = $this->M_Anggota->get($id)[0];
 
-        // $this->form_validation->set_rules('password', 'Password', 'required|trim', [
-        //     'required' => 'Password wajib diisi'
-        // ]);
-        // $this->form_validation->set_rules('new_password1', 'Password Baru', 'required|trim|min_length[8]|matches[new_password2]', [
-        //     'required' => 'Password wajib diisi',
-        //     'matches' => 'Password tidak cocok',
-        //     'min_length' => ' Password minimal-8 karakter!'
-        // ]);
-        // $this->form_validation->set_rules('new_password2', ' Konfirmasi Password Baru', 'required|trim|min_length[8]|matches[new_password1]');
-
-        // if ($this->form_validation->run() == false) {
-        //     redirect('?page=edit_profil&status=false');
-        // } else {
-            $id = $this->input->post("id");
-            $password_lama = $this->input->post("password");
-            $password_baru = $this->input->post("new_password1");
-            $password_baru2 = $this->input->post("new_password2");
-            $user = $this->M_Anggota->get($id)[0];
-            if($user->password == md5($password_lama) && $password_baru == $password_baru2) {
-                if($this->M_Anggota->update($id, [
-                    'password' => md5($password_baru)
-                ])) 
-                redirect('?page=edit_profil&status=true');
-            } else {
-                redirect('?page=edit_profil&status=false');
-            }
-        // }
+        $password_lama = $this->input->post("password");
+        $password_baru = $this->input->post("new_password1");
+        $password_baru2 = $this->input->post("new_password2");
+        $user = $this->M_Anggota->get($id)[0];
+        if ($user->password == md5($password_lama) && $password_baru == $password_baru2) {
+            if ($this->M_Anggota->update($id, [
+                'password' => md5($password_baru)
+            ]))
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success text-center" role="alert">Berhasil Mengubah Password</div>');
+            redirect('?page=profil');
+        } else {
+            $this->session->set_flashdata('error', '<div class="alert alert-danger text-center" role="alert">Gagal Mengubah Password</div>');
+            redirect('?page=ubah_pass');
+        }
     }
 
     public function delete()
@@ -104,6 +102,4 @@ class Anggota extends CI_Controller
             echo "Gagal menghapus data";
         }
     }
-
-   
 }

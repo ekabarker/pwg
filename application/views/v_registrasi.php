@@ -27,7 +27,7 @@
         </div>
         <!-- /.login-logo -->
         <div class="card">
-            <div class="card-body login-card-body">
+            <div class="card-body register-card-body">
                 <form class="anggota" method="post" action="<?php echo base_url('login/registrasi'); ?>">
                     <p class="login-box-msg">Silakan Registrasi Anggota</p>
                     <label for="nama">Nama</label>

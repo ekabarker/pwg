@@ -19,7 +19,10 @@ $footer = "footer_jadwal.php";
                     <label for="catatan">Catatan</label>
                     <textarea name="catatan" id="catatan" cols="30" rows="10" class="form-control"></textarea>
                 </div>
-                <button class="btn btn-primary" onClick="submit()">Submit</button>
+                <div class="col-2" style="margin: 0 auto">
+                    <button class="btn btn-primary" onClick="submit()">Submit</button>
+                    <a href="?page=daftar_jadwal"><button class="btn btn-primary">Kembali</button></a>
+                </div>
             </div>
         </div>
     </div>

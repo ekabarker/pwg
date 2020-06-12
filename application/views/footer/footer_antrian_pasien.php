@@ -17,7 +17,7 @@
                     } else if (item.status == 2) {
                         status = "Dibatalkan";
                     }
-                    var aksi = "<a href='home?page=lihat_pengobatan&id=" + item.id + "'><button class='btn btn-primary'>Lihat</button></a>";
+                    var aksi = "<a href='home?tampil=antrian&page=lihat_pengobatan&id=" + item.id + "'><button class='btn btn-primary'>Lihat</button></a>";
                     if (item.status == 0) {
                         aksi += " <button onClick='konfirmasi(" + item.id + ")' class='btn btn-success'>Konfirmasi</button> <button onClick='batalkan(" + item.id + ")' class='btn btn-danger'>Batalkan</button>";
                     }

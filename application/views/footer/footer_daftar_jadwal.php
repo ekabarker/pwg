@@ -13,26 +13,29 @@
 <script src="<?php echo base_url() ?>assets/plugins/fullcalendar-bootstrap/main.min.js"></script>
 <script>
     var calendar;
-    $(function () {
+    var role = $("#role").val();
+    $(function() {
         var calendarEl = document.getElementById('calendar');
+
         calendar = new FullCalendar.Calendar(calendarEl, {
             plugins: ['dayGrid', 'bootstrap'],
             editable: true,
             events: [],
             eventClick: function(event) {
-                if(confirm("Apakah anda ingin menghapus jadwal ini?")) {
-                    $.ajax({
-                        url: 'pengobatan/delete_libur',
-                        method: 'POST',
-                        data: {
-                            id: event.event.id
-                        },
-                        success: function() {
-                            window.location.reload();
-                        }
-                    });
+                if (role == 'admin') {
+                    if (confirm("Apakah anda ingin menghapus jadwal ini?")) {
+                        $.ajax({
+                            url: 'pengobatan/delete_libur',
+                            method: 'POST',
+                            data: {
+                                id: event.event.id
+                            },
+                            success: function() {
+                                window.location.reload();
+                            }
+                        });
+                    }
                 }
-                
             }
         });
         calendar.render();
@@ -52,11 +55,10 @@
                         borderColor: '#f56954',
                         allDay: true
                     }
-                    
+
                     calendar.addEvent(event);
                 });
             }
         })
     });
-    
 </script>

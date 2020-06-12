@@ -107,33 +107,31 @@ class Agenda extends CI_Controller
     {
         $id = $this->input->post('id');
         $url = $this->input->post('url');
-        $config = Array(
+        $config = array(
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
             'smtp_port' => 465,
             'smtp_user' => 'eka.supartawan17@gmail.com', // email gmail
             'smtp_pass' => 'jkl48ghzsf24', // password gmail
-            'mailtype'  => 'html', 
+            'mailtype'  => 'html',
             'charset'   => 'iso-8859-1'
         );
         $this->load->library('email', $config);
-       
-        
-        
+
+
+
         $users = $this->M_Anggota->getAll();
-        foreach($users as $user) {
-            if($user->role == "anggota") {
+        foreach ($users as $user) {
+            if ($user->role == "anggota") {
                 $this->email->set_newline("\r\n");
                 $this->email->from('eka.supartawan17@gmail.com', 'Admin');
                 $this->email->to($user->email);
                 $this->email->subject("Ada Agenda");
-                $this->email->message('Ada agenda baru, lihat disini '.$url);  
-                $result = $this->email->send(); 
+                $this->email->message('Ada agenda baru, lihat disini ' . $url);
+                $result = $this->email->send();
             }
-            
         }
 
         echo $this->email->print_debugger();
-        
     }
 }

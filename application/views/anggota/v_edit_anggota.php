@@ -49,8 +49,11 @@ $anggota = $this->M_Anggota->get($id)[0];
                         <option selected><?php echo $anggota->agama ?></option>
                         <option value="Hindu">Hindu</option>
                         <option value="Buddha">Buddha</option>
+                        <option value="Kristen Protestan">Kristen Protestan</option>
+                        <option value="Kristen Katolik">Kristen Katolik</option>
+                        <option value="Kong Hu Cu">Kong Hu Cu</option>
                         <option value="Islam">Islam</option>
-                        <option value="Kristen">Kristen</option>
+                        <option value="Lainnya">Lainnya</option>
                     </select>
 
                 </div>

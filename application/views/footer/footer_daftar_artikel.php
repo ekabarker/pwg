@@ -5,6 +5,24 @@
 <script src="<?php echo base_url() ?>assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
   var role = $("#role").val();
+  var tabel_artikel = $("#tabel_artikel").DataTable({
+    "responsive": true,
+    "autoWidth": false,
+    "ajax": {
+      url: "artikel/getAll",
+      dataSrc: function(data) {
+        return {
+          id: d.id,
+          judul: d.judul,
+          sub_judul: d.sub_judul,
+          tanggal: d.tanggal
+        }
+      }
+    },
+    columns: [{
+      data: "aksi"
+    }]
+  });
   var tabel = $("#tabel").DataTable({
     "responsive": true,
     "autoWidth": false,
@@ -20,6 +38,7 @@
           return {
             id: d.id,
             judul: d.judul,
+            sub_judul: d.sub_judul,
             tanggal: d.tanggal,
             aksi: aksi
           }

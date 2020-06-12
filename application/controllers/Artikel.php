@@ -30,6 +30,7 @@ class Artikel extends CI_Controller
             "anggota_id" => $this->session->user->id,
             "data" => $this->input->post("data"),
             "judul" => $this->input->post("judul"),
+            "sub_judul" => $this->input->post("sub_judul"),
             "tanggal" => date('Y-m-d')
         );
 
@@ -50,6 +51,7 @@ class Artikel extends CI_Controller
         $id = $this->input->post("id");
         $data = array(
             "judul" => $this->input->post("judul"),
+            "sub_judul" => $this->input->post("sub_judul")
         );
 
         $artikel = $this->M_Artikel->get($id)[0];

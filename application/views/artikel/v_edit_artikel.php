@@ -27,6 +27,11 @@ fclose($myfile);
                         <input type="text" id="judul" class="form-control" value="<?php echo $artikel->judul ?>">
                     </div>
                     <br>
+                    <div class="fom-group">
+                        <label for="judul">Sub Judul</label>
+                        <input type="text" id="sub_judul" class="form-control" value="<?php echo $artikel->sub_judul ?>">
+                    </div>
+                    <br>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi</label>
                         <textarea class="textarea-editor" id="artikel-editor" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $data ?></textarea>

@@ -33,7 +33,7 @@ class Pengobatan extends CI_Controller
                 $free[] = $j;
             }
         }
-        
+
 
         echo json_encode($free);
     }

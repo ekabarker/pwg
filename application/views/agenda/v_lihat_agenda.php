@@ -63,13 +63,13 @@ $footer = "footer_lihat_agenda.php";
                             </div>
                         </div>
                     </div>
-                    <div style="margin: 0 auto"><button class="btn btn-primary" onclick="send_email(<?php echo $id ?>)">Bagikan lewat email</button><br>
                     <div style="margin: 0 auto"><a href="?tampil=agenda&page=daftar_agenda"><button class="btn btn-primary">Kembali</button></a><br>
                         <div class="fb-share-button" id="btn-share" data-href="https://pwg.inditech.id/home?tampil=artikel&page=lihat_artikel&id=<?php echo $id ?>" data-layout="button_count">
                         </div>
                         <br />
                         <br />
                     </div><br>
+                    <!--<div style="margin: 0 auto"><button class="btn btn-primary" onclick="send_email(<?php echo $id ?>)">Bagikan lewat email</button><br>-->
                 </div>
             </div>
         </div>

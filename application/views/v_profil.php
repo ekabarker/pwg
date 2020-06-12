@@ -2,12 +2,6 @@
 $id = $this->session->user->id;
 $anggota = $this->M_Anggota->get($id)[0];
 $footer = "footer_edit_anggota.php";
-$status = $this->input->get("status");
-if($status == 'false') {
-    echo "<script>alert('Gagal mengupload')</script>";
-} else if($status == 'true') {
-    echo "<script>alert('Berhasil mengupload')</script>";
-}
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -21,15 +15,21 @@ if($status == 'false') {
                         </div>
 
                         <h3 class="profile-username text-center"><b><?php echo $anggota->username ?></b></h3>
-
+                        <div class="row">
+                            <div class="col-md-4" style="margin: auto;">
+                                <?php echo $this->session->flashdata('pesan'); ?>
+                                <?php echo $this->session->flashdata('error'); ?>
+                            </div>
+                        </div>
                         <div class="col">
                             <div class="card">
+
                                 <!-- /.card-header -->
                                 <div class="card-header p-2">
                                     <ul class="nav nav-pills">
                                         <li class="nav-item"><a class="nav-link active" href="#profile" data-toggle="tab">Profile</a></li>
                                         <li class="nav-item"><a class="nav-link" href="#edit_profile" data-toggle="tab">Edit Profile</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="?page=edit_profil">Ubah Password</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="?page=ubah_pass">Ubah Password</a></li>
                                     </ul>
                                 </div>
                                 <!-- /.card-header -->
@@ -78,7 +78,7 @@ if($status == 'false') {
                                         </div>
 
                                         <div class="tab-pane" id="edit_profile">
-                                            <?php echo form_open_multipart('anggota/update');?>
+                                            <?php echo form_open_multipart('anggota/update'); ?>
                                             <input type="text" name="id" value="<?php echo $anggota->id ?>" hidden>
                                             <strong><i class="fas fa-fw fa-signature"></i> Nama</strong>
                                             <input type="text" class="form-control" value="<?php echo $anggota->nama ?>" name="nama" id="nama">
@@ -114,8 +114,11 @@ if($status == 'false') {
                                                 <option selected><?php echo $anggota->agama ?></option>
                                                 <option value="Hindu">Hindu</option>
                                                 <option value="Buddha">Buddha</option>
+                                                <option value="Kristen Protestan">Kristen Protestan</option>
+                                                <option value="Kristen Katolik">Kristen Katolik</option>
+                                                <option value="Kong Hu Cu">Kong Hu Cu</option>
                                                 <option value="Islam">Islam</option>
-                                                <option value="Kristen">Kristen</option>
+                                                <option value="Lainnya">Lainnya</option>
                                             </select>
 
                                             <hr>
@@ -130,14 +133,13 @@ if($status == 'false') {
                                             <hr>
 
                                             <strong><i class="fas fa-fw fa-phone"></i>Foto Profile</strong>
-                                            <input type="file" name="gambar" id="gambar" class="form-control">
+                                            <input type="file" name="gambar" id="gambar" class="form-control" placeholder="pilih foto max(2mb)" value="<?php echo $anggota->gambar ?>">
 
                                             <hr>
                                             <div class="col" style="margin: 0 auto">
                                                 <div class="row">
                                                     <div>
                                                         <a href="?page=profil"><button class="btn btn-primary" type="submit">Simpan</button></a>
-                                                        <a href="?page=profil"><button class="btn btn-primary" onclick="return confirm('Yakin ingin membatalkan peruahan?');">Batal</button></a>
                                                     </div>
                                                 </div>
                                             </div>

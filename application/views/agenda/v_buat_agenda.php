@@ -39,6 +39,7 @@ $footer = "footer_buat_agenda.php";
                 </div>
 
                 <a href="?tampil=agenda&page=daftar_agenda"><button class="btn btn-primary" onclick="simpanAgenda()">Simpan</button></a>
+                <a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary" onclick="return confirm('Yakin batalkan Buat Agenda?');">Batal</button></a>
             </div>
         </div>
     </div>

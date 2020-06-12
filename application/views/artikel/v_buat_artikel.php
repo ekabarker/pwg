@@ -16,6 +16,10 @@ $footer = "footer_buat_artikel.php";
                         <label for="judul">Judul</label>
                         <input type="text" id="judul" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="judul">Sub Judul</label>
+                        <input type="text" id="sub_judul" class="form-control">
+                    </div>
                     <br>
                     <div class="form-group mb-10">
                         <label for="deskripsi">Deskripsi</label>
@@ -24,6 +28,7 @@ $footer = "footer_buat_artikel.php";
                 </div>
 
                 <button class="btn btn-primary" onclick="simpanArtikel()">Simpan</button>
+                <a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary" onclick="return confirm('Yakin batalkan Buat Artikel?');">Batal</button></a>
             </div>
         </div>
     </div>

@@ -24,6 +24,7 @@ $footer = "footer_buat_kegiatan.php";
                 </div>
 
                 <button class="btn btn-primary" onclick="simpanKegiatan()">Simpan</button>
+                <a href="?tampil=artikel&page=daftar_artikel"><button class="btn btn-primary" onclick="return confirm('Yakin batalkan Buat Kegiatan?');">Batal</button></a>
             </div>
         </div>
     </div>

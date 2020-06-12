@@ -6,11 +6,13 @@
     function simpanArtikel(e) {
         var data = $("#artikel-editor").val();
         var judul = $("#judul").val();
+        var sub_judul = $("#sub_judul").val();
         $.ajax({
             url: "artikel/create",
             method: "POST",
             data: {
                 judul: judul,
+                sub_judul: sub_judul,
                 data: data
             },
             success: function(result) {
